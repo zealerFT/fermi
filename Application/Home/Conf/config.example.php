@@ -1,19 +1,19 @@
 <?php
 //定义回调URL通用的URL
 //define('URL_CALLBACK', 'http://blog.feiteng.com/Home/Login/callback/type/');
-define('URL_CALLBACK', 'http://www.feiteng.ren/Home/Login/callback/type/');
+define('URL_CALLBACK', '');
 return array(
     //'配置项'=>'配置值'
   //腾讯QQ登录配置
   'THINK_SDK_QQ' => array(
-    'APP_KEY'    => '101386982', //应用注册成功后分配的 APP ID
-    'APP_SECRET' => 'a05963f94c8ef17e303cf9f6d51e9f2b', //应用注册成功后分配的KEY
+    'APP_KEY'    => '', //应用注册成功后分配的 APP ID
+    'APP_SECRET' => '', //应用注册成功后分配的KEY
     'CALLBACK'   => URL_CALLBACK . 'qq',
   ),
   //新浪微博配置
   'THINK_SDK_WEIBO' => array(
-    'APP_KEY'    => '1629609478', //应用注册成功后分配的 APP ID
-    'APP_SECRET' => 'f34abf261b65440c563b8d1f97c06d53', //应用注册成功后分配的KEY
+    'APP_KEY'    => '', //应用注册成功后分配的 APP ID
+    'APP_SECRET' => '', //应用注册成功后分配的KEY
     'CALLBACK'   => URL_CALLBACK . 'weibo',
   ),
   //腾讯微博配置
