@@ -1,0 +1,392 @@
+<include file="Public:header_backend"/>
+<include file="Public:menu_leftZiguan"/>
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu">
+            <ul class="search-ul position_re">
+                <li class="toolkit-item">
+                    <span class="sub-title">提醒事项</span>
+                    <div class="btn-group mr10">
+                        <a class="btn-sm btn-select-option">
+                            <span id="protype" name="pro_type">
+                                <if condition="$list.protype neq '' ">
+                                    {$list.protype}
+                                <else/>
+                                    全部
+                                </if>
+                            </span><i class="icon-caret-down"></i>
+                        </a>
+                        <ul style="display:none;" class="dropdown-menu border-dropdown">
+                            <volist name="list1" id="pt">
+                                <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">提醒方式</span>
+                    <div class="btn-group">
+                        <a class="btn-sm btn-select-option">
+                            <span id="protype" name="pro_type">
+                                <if condition="$list.protype neq '' ">
+                                    {$list.protype}
+                                <else/>
+                                    全部
+                                </if>
+                            </span><i class="icon-caret-down"></i>
+                        </a>
+                        <ul style="display:none;" class="dropdown-menu border-dropdown">
+                            <volist name="list2" id="pt">
+                                <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">关联人员</span>
+                    <div class="btn-group">
+                        <a class="btn-sm btn-select-option">
+                            <span id="protype" name="pro_type">
+                                <if condition="$list.protype neq '' ">
+                                    {$list.protype}
+                                <else/>
+                                    全部
+                                </if>
+                            </span><i class="icon-caret-down"></i>
+                        </a>
+                        <ul style="display:none;" class="dropdown-menu border-dropdown">
+                            <volist name="list3" id="pt">
+                                <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">提醒日期</span>
+                    <div class="btn-group">
+                        <input type="text" class="d-input input-date" id="Remind">
+                    </div>
+                </li>
+                <li class="toolkit-item position_ab btn-right">
+                    <a class="btn btn-green mr15 pull-left"><i class="iconAll icon-011"></i>查询</a>
+                    <a class="btn btn-default pull-left"><i class="iconAll icon-012"></i>重置</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-box mb50">
+            <div class="main-hd clearfix">
+                <a class="btn btn-button pull-left" href="./?m=Admin&c=Remind&a=remindDetail"><i class="iconAll icon-01"></i>新建</a>
+                <a class="btn btn-button pull-left ml10"><i class="iconAll icon-040"></i>修改</a>
+                <a class="btn btn-button pull-left ml10"><i class="iconAll icon-046"></i>关闭提醒</a>
+            </div>
+            <div>
+                <div class="tab">
+                    <table class="tabs" >
+                        <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>创建日期</th>
+                            <th>提醒事项</th>
+                            <th>提醒方式</th>
+                            <th>提醒日期</th>
+                            <th>提醒频率</th>
+                            <th>操作</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab">
+                    <table class="tabs di_none">
+                        <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>提醒事项2</th>
+                            <th>产品名称</th>
+                            <th>客户提醒</th>
+                            <th>提醒频率</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab">
+                    <table class="tabs di_none">
+                        <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>提醒事项3</th>
+                            <th>产品名称</th>
+                            <th>客户提醒</th>
+                            <th>提醒频率</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab">
+                    <table class="tabs di_none">
+                        <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>提醒事项4</th>
+                            <th>产品名称</th>
+                            <th>客户提醒</th>
+                            <th>提醒频率</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出框-->
+<div class="layer_bg"></div>
+<div class="layer_wrap  mt-250">
+    <div class="topper clearfix">
+        <span class="pull-left">提醒管理</span><a onclick="closeAll_1()" class="pull-right"></a>
+    </div>
+    <div class="frame">
+        <div>
+          <span class="inline-block position_re l_span">提醒事项：</span>
+          <div class="btn-group div-select position_re div-s d_div">
+              <a class="btn-sm btn-select-option">
+                  <span id="protype" name="pro_type">
+                      <if condition="$list.protype neq '' ">
+                          {$list.protype}
+                      <else/>
+                          请选择提醒事项
+                      </if>
+                  </span><i class="icon-caret-down"></i>
+              </a>
+              <ul style="display:none;" class="dropdown-menu border-dropdown">
+                  <volist name="list1" id="pt">
+                      <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                  </volist>
+              </ul>
+          </div>
+        </div>
+        <div>
+            <span>提醒方式：</span>
+            <label>
+                <input type="checkbox" name="tixing" value="1">短信
+            </label>
+            <label>
+                <input type="checkbox" name="tixing" value="2">站内信
+            </label>
+        </div>
+        <div class="clearfix">
+            <span>关联人员：</span>
+            <label>
+                <input type="checkbox"  value="1" onclick="quanxuan()">全部客户
+            </label>
+            <label>
+                <input type="checkbox" name="tixing" value="2">全部渠道
+            </label>
+            <label>
+                <input type="checkbox" name="tixing" value="3">全部员工
+            </label>
+            <div class="inline-block">
+                <p class="input-group line-block">
+                    <span id="input-group-addon01" class="input-group-addon float_left"><i class="search"></i></span>
+                </p>
+            </div>
+            <input type="hidden" value='' name='userid'>
+            <div class="table_wrap mb10">
+                <table class="tabs hide" width="100%" id="userlist">
+                    <tbody>
+                        <tr>
+                            <th style="display:none"></th>
+                            <th>姓名</th>
+                            <th>手机</th>
+                            <th>性别</th>
+                            <th>属性</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <span>关联产品：</span>
+            <label>
+                <input type="checkbox" name="tixing" value="4">全部产品
+            </label>
+            <div class="inline-block">
+                <p class="input-group line-block">
+                    <span id="input-group-addon02" class="input-group-addon float_left"><i class="search"></i></span>
+                </p>
+            </div>
+            <input type="hidden" value='' name='productid'>
+            <div class="table_wrap mb10">
+                <table class="tabs hide" id="productlist" width="100%">
+                    <tbody>
+                      <tr>
+                          <th>产品名</th>
+                      </tr>
+                    </tbody>
+                </table>
+                <div class="text-center clearfix"></div>
+            </div>
+        </div>
+        <div>
+            <span>跟进日期：</span>
+            <input type="text" class="input-date input-width" id="date" placeholder="请输入提醒日期">
+        </div>
+        <div>
+            <span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前：</span>
+            <input type="text" class="input-date input-width">
+            <span class="ml10">天通知</span>
+        </div>
+        <div>
+            <span>提醒频率：</span>
+            <div class="btn-group">
+                <a class="btn-sm btn-select-option">
+                    <span id="protype" name="pro_type">
+                        <if condition="$list.protype neq '' ">
+                            {$list.protype}
+                        <else/>
+                            选择频率
+                        </if>
+                    </span><i class="icon-caret-down"></i>
+                </a>
+                <ul style="display:none;" class="dropdown-menu border-dropdown">
+                    <volist name="list4" id="pt">
+                        <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix">
+            <span>提醒内容：</span>
+            <textarea></textarea>
+        </div>
+        <div class="btnbox text-center mt20">
+            <input type="submit" class="btn btn-green w60" value="确认">
+            <a class="btn btn-default ml20" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+        </div>
+    </div>
+</div>
+
+<!--根据手机号码搜索员工信息-->
+<div class="layer_bg01"></div>
+<div class="layer_wrap01 search_wrap border" id="mobile_search"
+     style="left: 46%!important;top: 26%!important;">
+    <div class="topper clearfix">
+        <span class="pull-left">选择手机</span><a onclick="special()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <div class="input-group w400 mb20">
+            <input class="form-control" id="mobilekey" placeholder="手机号码关键字"  value = '' type="text" >
+            <span class="input-group-addon" id="basic-addon1" onclick="selectuserbymobile();"><i class="search"></i></span>
+        </div>
+        <div class="table_wrap clearmoblie" style="height:470px;">
+            <table class="tabs" id='insertempmobile' width="100%">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <br />
+    </div>
+</div>
+<!--根据产品名称搜索员工信息-->
+<div class="layer_bg02"></div>
+<div class="layer_wrap02 search_wrap border" id="product_search"
+     style="left: 46%!important;top: 26%!important;">
+    <div class="topper clearfix">
+        <span class="pull-left">选择产品</span><a onclick="special()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <div class="input-group w400 mb20">
+            <input class="form-control" id="productkey" placeholder="产品名关键字"  value = '' type="text" >
+            <span class="input-group-addon" id="basic-addon2" onclick="selectproduct();"><i class="search"></i></span>
+        </div>
+        <div class="table_wrap clearproduct" style="height:470px;">
+            <table class="tabs" id='insertproduct' width="100%">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <br />
+    </div>
+</div>
+<include file="Public:footer_backend"/>
+<script src="./Web/Admin/View/Remind/Js/remind.js"></script>
+<script>
+    var a_btn = $(".special");
+    var tab = $(".tab");
+    for(var i=0;i<a_btn.length;i++){
+        a_btn[i].index = i;
+        //updata(i);
+        a_btn.eq(i).click(function(){
+            tab.not(this.index).hide();
+            tab.find(".tabs").show();
+            tab.eq(this.index).show();
+        })
+    }
+    function special(){
+        $(".layer_bg01").hide();
+        $(".layer_wrap01").hide();
+        $(".layer_bg02").hide();
+        $(".layer_wrap02").hide();
+    }
+    function adder(){
+        $(".layer_bg").show();
+        $('.layer_wrap').show();
+    }
+    /*全选按钮*/
+    /*function quanxuan(){
+        var box = $("input[name='tixing']");
+        box.each(function(i){
+            box[i].checked = !box[i].checked;
+        })
+    }
+    function updata(id){
+        $.ajax({
+            url: './?c=management&a=remindUpdata', //地址
+            type: 'post', //传送方式
+            data: {id:id},
+            cache: false, //是否缓存  默认是
+            datatype: 'json', //文件格式
+            success: function(data) {
+                tabs.eq(id).append(data);
+            }
+        })
+    }
+
+    function add(id){
+
+        $.ajax({
+            url: './?c=management&a=remindAdd', //地址
+            type: 'post', //传送方式
+            data: {id:id},
+            cache: false, //是否缓存  默认是
+            datatype: 'json', //文件格式
+            success: function(data) {
+                tabs.eq(id).append(data);
+            }
+        })
+    }*/
+</script>
+<script>
+    jeDate({
+        dateCell:"#Remind",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"2014-09-19 00:00:00"
+    });
+    jeDate({
+        dateCell:"#date",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"2014-09-19 00:00:00"
+    });
+    /*input下拉取值*/
+    var ss = $(".btn-group li");
+    ss.click(function(){
+        var tt =  $(this).find("a").text();
+        var input = $(this).parent().parent().find("input");
+        input.val(tt);
+    });
+
+</script>

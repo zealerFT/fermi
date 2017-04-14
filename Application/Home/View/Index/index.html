@@ -1,0 +1,184 @@
+<include file="Public:header" />
+	<!--start-main-->
+	<div class="header-bottom">
+		<div class="container">
+			<div class="logo wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+				<h1><a href="index.html">Fermi BLOG</a></h1>
+				<p class="wobble-hover"><label class="of"></label>欢迎来到费腾的博客<label class="on"></label></p>
+			</div>
+		</div>
+	</div>
+<!-- banner -->
+
+<div class="banner">
+  <div class="container">
+		<h2>费腾博客</h2>
+		<p>欢迎来到我的博客，有什么意见和建议，请不要发给我，发给我我也不会看，谢谢！</p>
+		<div class="ring-hover">
+			<a target="_blank" href="{:U('Article/index', array('id' => $list1['id']))}">READ MORE</a>
+		</div>
+	</div>
+</div>
+	<!-- technology-left -->
+	<div class="technology">
+	<div class="container">
+		<div class="col-md-9 technology-left">
+		<div class="tech-no">
+			<!-- technology-top -->
+
+			 <div class="tc-ch wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+
+					<div class="tch-img swing-hover">
+						<a href="{:U('Article/index', array('id' => $list1['id']))}"><img src="/Upload{$list1['bigview'][0]}" class="img-responsive" alt=""></a>
+					</div>
+
+					<h3 ><a href="{:U('Article/index', array('id' => $list1['id']))}">{$list1['title']}</a>
+					</h3>
+					<h6>BY <a href="{:U('Article/index', array('id' => $list1['id']))}">{$list1['author']}  </a>{$list1['createdtime']}</h6>
+						<p>{$list1['shortsynopsis']}</p>
+						<div class="bht1 ring-hover">
+							<a href="{:U('Article/index', array('id' => $list1['id']))}">点击查看</a>
+						</div>
+						<div class="soci">
+							<ul>
+								<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                <script>
+								window._bd_share_config=
+								{
+								"common":{
+								"bdSnsKey":false,
+								"bdText":false,
+								"bdMini":"2",
+								"bdMiniList":false,
+								"bdPic":false,
+								"bdStyle":"1",
+								"bdSize":"16"},
+								"share":{},
+								//"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},
+								//"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}
+							  };
+								with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+								</script>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+			<!-- technology-top -->
+			<!-- technology-top -->
+			<div class="w3ls">
+				<foreach item="list2" name="list2" >
+					<div class="col-md-6 w3ls-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						 <div class="tc-ch">
+							<div class="tch-img swing-hover">
+								<a href="{:U('Article/index', array('id' => $list2['id']))}">
+								<img src="/Upload{$list2['bigview'][0]}" class="img-responsive" alt=""></a>
+							</div>
+
+							<h3><a href="{:U('Article/index', array('id' => $list2['id']))}">{$list2['title']}</a></h3>
+							<h6>BY <a href="{:U('Article/index', array('id' => $list2['id']))}">{$list2['author']}  </a>{$list2['createdtime']}</h6>
+								<p>{$list2['shortsynopsis']}</p>
+								<div class="bht1 ring-hover">
+									<a href="{:U('Article/index', array('id' => $list2['id']))}">看看喽</a>
+								</div>
+								<div class="soci">
+									<ul>
+										<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		                <script>
+										window._bd_share_config=
+										{
+										"common":{
+										"bdSnsKey":false,
+										"bdText":false,
+										"bdMini":"2",
+										"bdMiniList":false,
+										"bdPic":false,
+										"bdStyle":"1",
+										"bdSize":"16"},
+										"share":{},
+										//"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},
+										//"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}
+									  };
+										with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+										</script>
+									</ul>
+								</div>
+								<div class="clearfix"></div>
+						</div>
+					</div>
+				</foreach>
+				<div class="clearfix"></div>
+			</div>
+			<!-- technology-top -->
+			<foreach item="list3" name="list3">
+				<div class="wthree">
+					 <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<div class="tch-img swing-hover">
+								<a href="{:U('Article/index', array('id' => $list3['id']))}">
+								<img src="/Upload{$list3['bigview'][0]}" class="img-responsive" alt=""></a>
+							</div>
+					 </div>
+					 <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+							<h3><a href="{:U('Article/index', array('id' => $list3['id']))}">{$list3['title']}</a></h3>
+							<h6>BY <a href="{:U('Article/index', array('id' => $list3['id']))}">{$list3['author']}  </a>{$list3['createdtime']}</h6>
+								<p>{$list3['shortsynopsis']}</p>
+								<div class="bht1 ring-hover">
+									<a href="{:U('Article/index', array('id' => $list3['id']))}">看看喽</a>
+								</div>
+								<div class="soci">
+									<ul>
+										<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+		                <script>
+										window._bd_share_config=
+										{
+										"common":{
+										"bdSnsKey":false,
+										"bdText":false,
+										"bdMini":"2",
+										"bdMiniList":false,
+										"bdPic":false,
+										"bdStyle":"1",
+										"bdSize":"16"},
+										"share":{},
+										//"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},
+										//"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}
+									  };
+										with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+										</script>
+									</ul>
+								</div>
+								<div class="clearfix"></div>
+					 </div>
+					 <div class="clearfix"></div>
+				</div>
+			</foreach>
+			</div>
+			<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+							<div class="layui-box layui-laypage layui-laypage-default">
+								{$page}
+							</div>
+			</div>
+			<!--google map-->
+			<!-- <div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+			    <div id="map"></div>
+			</div> -->
+		</div>
+<include file="Public:right" />
+	</div>
+</div>
+<include file="Public:footer" />
+<script>
+layui.use(['util', 'jquery', 'laypage', 'layer'], function () {
+		var util = layui.util, $ = layui.jquery, laypage = layui.laypage, layer = layui.layer;
+		util.fixbar();
+		$('.blog-header-menu-icon').on('click', function () {
+				var $nav = $('.blog-header-menu-nav');
+				$nav.toggle();
+		});
+});
+$(function() {
+$(".heart").on("click", function() {
+	$(this).toggleClass("is-active");
+});
+});
+</script>

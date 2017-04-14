@@ -1,0 +1,74 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0)" onclick="addrole()"><i class="iconAll icon-01"></i>增加</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0)" onclick="updaterole()"><i class="iconAll icon-040"></i>修改</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0)" onclick="deleterole()"><i class="iconAll icon-060"></i>删除</a>
+            </div>
+            <table class="tabs">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--添加角色-->
+<div class="layer_bg01 layer_0"></div>
+<div class="layer_wrap01 border layer_0" style="width:700px;">
+    <div class="topper clearfix">
+        <span id="title" class="xf">添加角色</span><a onclick="closeAll_1()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <form id="detail" class="detailform" action="" method="post">
+            <input type="hidden" name="rid"/>
+            <input type="hidden" name="addAuth"/>
+            <input type="hidden" name="deleteAuth"/>
+            <span id="msg" class="hide"></span>
+            <table class="tb_info uperrorForm">
+                <tbody>
+                    <tr>
+                        <th>角色名称</th>
+                        <td><input type="text" name="name"/></td>
+                    </tr>
+                    <tr>
+                        <th>权限</th>
+                        <td>
+                            <li class="toolkit-item">
+                                <div class="btn-group">
+                                    <input type="hidden" name="privilegesid" />
+                                    <textarea name="privilegesname" cols="58" rows="3"></textarea><i class="icon-caret-down"></i>
+                                    <ul id="tt" class="easyui-tree tree dropdown-menu" checkbox="true" style="display:none;"></ul>
+                                </div>
+                            </li>
+                        </td>
+                    </tr>
+
+                    <!--tr>
+                        <td>权限</td>
+                        <td colspan="3">
+                            <input id="admin_jsglEdit_pid" name="privilegesname" required="true" class="easyui-combotree" data-options="url:'./Public/treegrid_data1.json',parentField:'pid',cascadeCheck:false,lines:true,panelHeight:300,multiple:true" style="width: 350px;" />
+                            <img src="./Public/config/cut.png" onclick="$('#admin_jsglAdd_pid').combotree('clear');" />
+                        </td>
+                    </tr-->
+
+                    <tr>
+                        <th>描述</th>
+                        <td colspan="3"><textarea name="description" cols="58" rows="10"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="btnbox text-center">
+                <button class="btn btn-green" type="submit">确认</button>
+                <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="./Web/Admin/View/System/Js/role.js"></script>
+<include file="Public:footer_backend" />

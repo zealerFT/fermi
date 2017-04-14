@@ -1,0 +1,75 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu">
+            <ul class="search-ul position_re">
+                <li class="toolkit-item">
+                    <span class="sub-title">标题</span>
+                    <input type="text" id="productname" name="productname" class="input-text" value="{$productname}" style="width: 200px;"/>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">日期</span>
+                    <input id="createdate01" type="text" class="input-date" />
+                    -&nbsp;<input id="createdate02" type="text" class="input-date"  />
+                </li>
+                <li class="toolkit-item position_ab btn-right">
+                    <a class="btn btn-green mr15 pull-left" onclick="return selPro(1);"><i class="iconAll icon-011"></i>查询</a>
+                    <a class="btn btn-default pull-left" onclick="return clePro();"><i class="iconAll icon-012"></i>重置</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-01"></i>增加</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-040"></i>修改</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-060"></i>删除</a>
+            </div>
+            <table class="tabs">
+                <tbody>
+                </tbody>
+            </table>
+            <div id="kkpager" class="text-center clearfix">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--账户详情-->
+<div class="layer_bg01 layer_0"></div>
+<div class="layer_wrap01 border layer_0" style="width:600px;">
+    <div class="topper clearfix">
+        <span class="xf">推送目标</span><a onclick="closeAll_1()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <!--<div id="responseText" class="red"></div>-->
+        <form id="form1" action="./?m=Admin&c=product&a=tuisong" method="post">
+            <input id="tsid" type="hidden" name="proid" value="" />
+            <table class="tb_info uperrorForm">
+                <tbody>
+                <tr>
+                    <td><input name="sub_advisor_all" type="checkbox" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;旗下所有理财顾问</td>
+                    <td><input name="cloud_market" type="checkbox" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;云市场</td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="input-text" type="text" name="remarks"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="btnbox text-center">
+                <button class="btn btn-green" type="submit" id="btnAjaxForm">确认</button>
+                <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="./Web/Admin/View/System/Js/account.js"></script>
+<include file="Public:footer_backend" />

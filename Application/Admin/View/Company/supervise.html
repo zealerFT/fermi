@@ -1,0 +1,250 @@
+<include file="Public:header_backend"/>
+<include file="Public:menu_leftZiguan"/>
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu clearfix position_re supervise">
+            <ul>
+                <li>公司简介</li>
+                <li>公司公告</li>
+                <li>招聘信息</li>
+            </ul>
+        </div>
+        <div class="main-box supervise-box">
+            <div class="supervise-one">
+                <form action="./?m=Admin&c=management&a=setAdminpage" id="form1" method="post" enctype ="multipart/form-data">
+                    <div class="supervise-list">
+                        <div>
+                            <h2>公司简介：</h2>
+                            <div>
+                                <textarea name="Introduction">{$list.compro}</textarea>
+                                <div class="nav-list">
+                                    <div class="nav">
+                                        <foreach name="list.compropic" item="vo">
+                                            <label class="add_label"><div class="fileList" id="preview5">
+                                                <img class="iconAll icon-055" src="{$vo}">
+                                            </div><input type="file" id="file_name5" name="aptitude_file_names0[]" onchange="previewImage(this,'file_name5','preview5')"></label>
+                                        </foreach>
+                                        <label class="add_labe1">
+                                            <div class="fileList adder">
+                                                <img class="iconAll icon-054" >
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <p>添加公司简介图片...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>公司 Logo：</h2>
+                            <div class="company-logo">
+                                <div class="nav-list">
+                                    <label class="add_label">
+                                        <div class="fileList" id="preview30">
+                                            <img class="iconAll icon-055" src="{$list.logopic}"></div>
+                                        <input type="file" id="file_name30" name="logo[]"
+                                               onchange="previewImage(this,'file_name30','preview30')">
+                                    </label>
+                                </div>
+                                <p>添加公司logo图片...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>投资理念：</h2>
+                            <div>
+                                <textarea name="Idea">{$list.investphilosophy}</textarea>
+                                <div class="nav-list">
+                                    <div class="nav">
+                                        <foreach name="list.invest_phi_pic" item="vo">
+                                            <label class="add_label"><div class="fileList" id="preview6">
+                                                <img class="iconAll icon-055" src="{$vo}">
+                                            </div><input type="file" id="file_name6" name="aptitude_file_names1[]" onchange="previewImage(this,'file_name6','preview6')"></label>
+                                        </foreach>
+                                        <div class="fileList adder">
+                                            <img class="iconAll icon-054" >
+                                        </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <p>添加投资管理图片...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>管理团队：</h2>
+                            <div>
+                                <div class="main-hd clearfix">
+                                    <a class="btn btn-button pull-left" onclick="append()"><i class="iconAll icon-01"></i>添加</a>
+                                </div>
+                                <table class="tabs" id="mytabs">
+                                    <tbody>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>职位</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div id="kkpager" class="text-center clearfix"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>公司愿景：</h2>
+                            <div>
+                                <textarea name="Vision">{$list.companysvision}</textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>联系我们：</h2>
+                            <div>
+                                <textarea name="Contact">{$list.contactus}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mb20">
+                        <button class="btn btn-green  btn-save">保存</button>
+                    </div>
+                </form>
+            </div>
+            <div class="supervise-two">
+                <div class="main-hd clearfix">
+                    <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-01"></i>增加</a>
+                    <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-040"></i>修改</a>
+                    <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-060"></i>删除</a>
+                </div>
+                <div>
+                    <table class="tabs">
+                        <tbody>
+                        <tr>
+                            <th>序号</th>
+                            <th>公司公告</th>
+                            <th>公司类型</th>
+                            <th>标题</th>
+                            <th>操作</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="supervise-three">
+                <div class="clearfix s-top">
+                    <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-01"></i>增加</a>
+                    <a class="btn btn-button pull-left mr20" href="javascript:void(0);"><i class="iconAll icon-060"></i>删除</a>
+                </div>
+                <div class="textatea-box">
+                    <div>
+                        <label>
+                            <input type="radio" name="radio" value="radio1"  class='radio'>
+                        </label>
+                        <div class="supervise-text">
+                            <div>
+                                <p>招聘岗位：</p><input type="text" class="input-text">
+                            </div>
+                            <div>
+                                <p>岗位描述：</p><textarea></textarea>
+                            </div>
+                            <div>
+                                <p>任职要求：</p><textarea></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb20">
+                    <a class="btn btn-green  btn-save">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加、修改经理-->
+<div class="layer_bg03"></div>
+<div class="layer_wrap03 border w700 mt-250">
+    <div class="topper clearfix">
+        <span class="xf">基金经理</span><a onclick="closeAll_1()" class="xr float_right"></a>
+    </div>
+    <div class="pd30 bc-normal relative" style="height:500px;overflow-y:scroll;">
+        <form id="managerform" action="./?m=Admin&c=product&a=add_pro_managerinfo" method="post">
+            <input type="hidden" name="proid" value="{$pro_id}"/>
+            <input type="hidden" name="education_level"/>
+            <input type="hidden" name="post_post"/>
+            <input id="managerinfoid" type="hidden" name="id"/>
+            <table class=" uperrorForm tb_info">
+                <tbody>
+                <tr>
+                    <th width="15%">姓名</th>
+                    <td><input class="input-text select-v" type="text" name="psname"/></td>
+                    <th width="15%">出生日期</th>
+                    <td><input id="date3" class="input-date" type="text" name="birthday"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">学历</th>
+                    <td>
+                        <div class="btn-group pull-left mr10 select-v">
+                            <a class="btn-sm btn-select-option ">
+                                <span id="educationlevel" name="education_level">请选择</span><i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu border-dropdown">
+                                <li><a value="大专">大专</a></li>
+                                <li><a value="本科">本科</a></li>
+                                <li><a value="研究生">研究生</a></li>
+                                <li><a value="博士">博士</a></li>
+                                <li><a value="初中">初中</a></li>
+                                <li><a value="高中">高中</a></li>
+                                <li><a value="中专">中专</a></li>
+                                <li><a value="技校">技校</a></li>
+                                <li><a value="其它">其它</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <th>金融从业起始日期</th>
+                    <td><input id="date4" class="input-date" type="text" name="finpdate"/></td>
+                </tr>
+                <tr>
+                    <th width="15%">任职日期</th><!--colspan="3"-->
+                    <td><input id="date5" class="input-date input_td" type="text" name="begindate">~<input id="date6" class="input-date input_td" type="text" name="enddate"/></td>
+                    <th width="5%">职务</th>
+                    <td>
+                        <div class="btn-group pull-left mr10 select-w">
+                            <a class="btn-sm btn-select-option ">
+                                <span id="post" name="post_post">请选择</span><i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu border-dropdown">
+                                <li><a value="1">信托投资经理</a></li>
+                                <li><a value="2">信托项目经理</a></li>
+                                <li><a value="3">信托投资经理助理</a></li>
+                                <li><a value="4">信托项目经理助理</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="15%">公告日期</th>
+                    <td><input id="date7" type="text" class="input-date" name="declaredate"/></td>
+                    <th>是否有效</th>
+                    <td>
+                        <label><input type="radio" name="isvalid" id="isvalid1" value="1"/>有</label>
+                        <label><input type="radio" name="isvalid" id="isvalid0" value="0"/>无</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="20%">履历背景</th>
+                    <td colspan="3"><textarea name="bbackground" class="textarea-normal"></textarea></td>
+                </tr>
+                <tr>
+                    <th width="20%">简历</th>
+                    <td colspan="3"><textarea name="remark" class="textarea-normal"></textarea></td>
+                </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="btnbox text-center">
+                <!--<a class="btn btn-green" href="javascript:void(0);">确认</a>-->
+                <button class="btn btn-green" type="submit">确认</button>
+                <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+            </div>
+            <br /><br />
+        </form>
+    </div>
+</div>
+<include file="Public:footer_backend"/>
+<script src="./Web/Admin/View/Management/Js/supervise.js"></script>

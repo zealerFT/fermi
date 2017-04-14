@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="keywords" content="首页" />
+    <meta name="description" content="置富理财" />
+    <title>置富理财</title>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/Css/bootstrap.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/Css/reset.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/Css/common.css">
+    <script src="__PUBLIC__/Admin/Js/jquery-1.8.3.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery-1.9.1.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.tools.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/Validform_v5.3.2_min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/bootstrap.js"></script>
+    <script src="__PUBLIC__/Admin/Js/main.js"></script>
+    <script src="__PUBLIC__/Admin/Js/swiper.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.cookie.js"></script>
+</head>
+<body>
+<!--弹出提示框-->
+<div class="layer_bg"></div>
+<div class="layer_wrap_tishi border">
+    <div class="topper">
+        <span><i class="iconAll icon-043"></i>提示信息</span>
+    </div>
+    <div class="error-box">
+        <p id="message_error"></p>
+    </div>
+    <div class="l_footer"><a onclick="close_tishi()">确定</a></div>
+</div>
+
+<div class="header ">
+    <div class="container clearFix">
+        <div class="logo xf">
+            <a href="#"><img src="./Web/Home/View/Public/Images/logo.png"></a>
+        </div>
+        <div class="nav xr">
+            <div class="nav_btn">
+                <if condition="$_SESSION['user']['accountBasic']['id'] neq ''"><!--前台头像-->
+                   <div style="margin-top:-5px;">
+                       <img style="width: 40px;height: 40px;border-radius: 50%;" class="mr5" src="{$_SESSION['userinfo']['userpic']}">
+                       <a href="javascript:void(0);" class="cl-fff"> 欢迎您，{$_SESSION['user']['accountBasic']['accountname']}</a><a href="./?m=Admin&c=Login&a=loginOut" class="cl-fff"><i class="iconAll icon-044"></i>退出</a>
+                   </div>
+                    <else />
+                    <a class="btn btn-danger" href="./?m=Admin&c=Login&a=register">注册</a>
+                    <a class="btn btn-fff ml10" href="./?m=Admin&c=Login&a=login">登录</a>
+                </if>
+            </div>
+        </div>
+        <div class="nav xr">
+            <ul>
+                <eq name="mode_name" value="index">
+                    <li><a href="./?c=Index&a=index" class="on">首页</a></li>
+                    <else />
+                    <li><a href="./?c=Index&a=index">首页</a></li>
+                </eq>
+                <eq name="mode_name" value="notice">
+                    <li><a href="./?c=Aboutus&a=notice" class="on">新闻动态</a></li>
+                    <else />
+                    <li><a href="./?c=Aboutus&a=notice">新闻动态</a></li>
+                </eq>
+                <eq name="mode_name" value="productlist">
+                    <li><a href="./?c=Product&a=productlist" class="on product">旗下产品</a></li>
+                    <else/>
+                    <li><a href="./?c=Product&a=productlist" class="product">旗下产品</a></li>
+                </eq>
+                <eq name="mode_name" value="team">
+                    <li><a href="./?c=Aboutus&a=team" class="on">管理团队</a></li>
+                    <else/>
+                    <li><a href="./?c=Aboutus&a=team">管理团队</a></li>
+                </eq>
+                <eq name="mode_name" value="recruit">
+                    <li><a href="./?c=Aboutus&a=recruit" class="on">招贤纳士</a></li>
+                    <else />
+                    <li><a href="./?c=Aboutus&a=recruit">招贤纳士</a></li>
+                </eq>
+                <eq name="mode_name" value="aboutus">
+                    <li><a href="./?c=Aboutus&a=aboutus" class="on">联系我们</a></li>
+                    <else/>
+                    <li><a href="./?c=Aboutus&a=aboutus">联系我们</a></li>
+                </eq>
+            </ul>
+        </div>
+        <div class="qgcode-right">
+            <div>
+                <div class="logo-weidian none">
+                    <img src="./Web/Home/View/Public/Images/weidian.png"><br />
+                    移动站
+                </div>
+                <!--div class="logo-weidian icon10-1">
+                    <img src="./Web/Home/View/Public/Images/ios.png"><br />
+                    扫一扫<br />智裕创赢苹果端
+                </div-->
+                <div class="logo-weidian none">
+                    <img src="./Web/Home/View/Public/Images/android.png"><br />
+                    下载安卓版android
+                </div>
+            </div>
+            <ul>
+                <li><i class="iconAll icon9"></i></li>
+                <!--<li><i class="iconAll icon10"></i></li>-->
+                <!--<li><i class="iconAll icon11"></i></li>-->
+            </ul>
+        </div>
+    </div>
+</div>

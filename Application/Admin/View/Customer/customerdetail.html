@@ -1,0 +1,140 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu clearfix p0">
+            <a class="btn btn-green mr25 mt10 pull-right edit" onclick="addtrace();">添加记录</a>
+            <ul class="tab-ul clearfix">
+                <li><a href="./?m=Admin&c=customer&a=customerdetail" class="current basic">基本信息</a></li>
+                <!--<li><a href="./?m=Admin&c=customer&a=customerdetail" class="details">详细信息</a></li>
+                <li><a href="#" onclick="trace();" class="current followUp">跟进记录</a></li>-->
+            </ul>
+        </div>
+        <div class="panes">
+            <!--基本信息-->
+            <div class="main-box position_re curto">
+                <div class="error3 error" ></div><!--验证信息报错空白行-->
+                <form action="" method="post" id="form1" class="myformone" >
+                    <input type="hidden" name="customerid" value="{$data.id}">
+                    </table>
+                    <table class="tabs01">
+                        <table class="tabs" width="100%">
+                            <tbody>
+                            <tr>
+                                <th>客户姓名<span class="red">*</span></th>
+                                <td>
+                                    <input class="input-text" type="text" name="realname" value="{$data.realname}">
+                                </td>
+                                <th>出生日期<span class="red">*</span></th>
+                                <td>
+                                    <input class="input-text dateInput" type="text"  name="birthday" id="dateInput" value="{$data.birthday}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>性别</th>
+                                <td class="sexSmoke">
+                                    <input type="radio" name="sex" value="1" {$sex.man}>男
+                                    <input type="radio" name="sex" value="2" {$sex.woman}>女
+                                </td>
+                                <th>是否吸烟</th>
+                                <td class="sexSmoke">
+                                    <input type="radio" name="smoke" value="1" {$smoke.yes}>是
+                                    <input type="radio" name="smoke" value="2" {$smoke.no}>否
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>身高(cm)</th>
+                                <td>
+                                    <input class="input-text" type="text" name="height"  value="{$data.height}">
+                                </td>
+                                <th>体重(kg)</th>
+                                <td>
+                                    <input class="input-text" type="text" name="weight" value="{$data.weight}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>证件类型</th>
+                                <td>
+                                    <input class="input-text" type="hidden" id="idcardtype" name="idcardtype" value="{$data.idcardtype}">
+                                    <div class="btn-group divBtnGroup">
+                                        <a class="btn-sm btn-select-option">
+                                            <span id="protype" name="idcardtype">{$idcardtypename}</span><i class="icon-caret-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu border-dropdown">
+                                            <!--<volist name="protype" id="pt">
+                                                <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                                            </volist>-->
+                                            <li><a value="1">大陆身份证</a></li>
+                                            <li><a value="2">香港身份证</a></li>
+                                            <li><a value="3">护照</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <th>证件号码</th>
+                                <td>
+                                    <input class="input-text" type="text" name="idcardno"  value="{$data.idcardno}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>证件地址</th>
+                                <td>
+                                    <input class="input-text" type="text" name="idcardaddress"  value="{$data.idcardaddress}">
+                                </td>
+                                <th>其他证件号码</th>
+                                <td>
+                                    <input class="input-text" type="text" name="otheridcardno" value="{$data.otheridcardno}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>电子邮箱</th>
+                                <td>
+                                    <input class="input-text" type="text" name="email"  value="{$data.email}">
+                                </td>
+                                <th>通讯地址</th>
+                                <td>
+                                    <input class="input-text" type="text"  name="address" value="{$data.address}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>公司名称</th>
+                                <td>
+                                    <input class="input-text" type="text"  name="corporatename" value="{$data.corporatename}">
+                                </td>
+                                <th>公司地址</th>
+                                <td>
+                                    <input class="input-text" type="text"  name="corporationaddress" value="{$data.corporationaddress}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>业务性质</th>
+                                <td>
+                                    <input class="input-text" type="text" name="business_nature"  value="{$data.business_nature}">
+                                </td>
+                                <th>职位</th>
+                                <td>
+                                    <input class="input-text" type="text"  name="post" value="{$data.post}">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </table>
+                    <div class="text-center mb30 pt30 clearfix">
+                        <a class="btn btn-green mr15" id="btnajaxsubmitone" onclick="customeradd()">保存</a>
+                        <a href="./?m=Admin&c=customer&a=customermanagement" name="back" onclick="return back();" class="btn btn-default mr15">取消</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    jeDate({
+        dateCell:"#dateInput",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    });
+</script>
+<script src="./Web/Admin/View/Customer/js/customerdetail.js"></script>
+<include file="Public:footer_backend" />

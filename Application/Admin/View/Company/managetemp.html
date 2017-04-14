@@ -1,0 +1,262 @@
+<form id="form2" action="{$url}" method="post">
+    <input type="hidden" name="educationlevel" value='{$type1}'/>
+    <!--<input type="hidden" name="post" value='{$type3}' />-->
+    <input type="hidden" name="bbackground" value='{$type2}' />
+    <input id="managerinfoid" type="hidden" name="managerinfoid" value="{$list.ID}"/>
+    <table class=" uperrorForm tb_info">
+        <tbody>
+        <tr>
+            <th width="15%">姓名</th>
+            <td><input class="input-text select-v" type="text" name="psname" value="{$list.PSNAME}"/></td>
+            <th width="15%">出生日期</th>
+            <td><input id="date3" class="input-date" type="text" name="birthday" value="{$list.BIRTHDAY}"/></td>
+        </tr>
+        <tr>
+            <th width="15%">学历</th>
+            <td>
+                <div class="btn-group pull-left mr10 select-v">
+                    <a class="btn-sm btn-select-option">
+                        <span id="educationlevel" name="educationlevel">
+                            <if condition="$list.EDUCATIONLEVEL neq '' ">
+                                {$list.EDUCATIONLEVEL}
+                            <else/>
+                                请选择
+                            </if>
+                        </span><i class="icon-caret-down"></i>
+                    </a>
+                    <ul style="display:none;" class="dropdown-menu border-dropdown">
+                        <volist name="manage" id="pt">
+                            <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                        </volist>
+                    </ul>
+                </div>
+            </td>
+            <th>金融从业起始日期</th>
+            <td><input id="date4" class="input-date" type="text" name="finpdate" value="{$list.FINPDATE}"/></td>
+        </tr>
+        <tr>
+            <th width="15%">任职日期</th><!--colspan="3"-->
+            <td><input id="date5" class="input-date input_td" type="text" name="begindate" value="{$list.BEGINDATE}">~<input id="date6" value="{$list.ENDDATE}" class="input-date input_td" type="text" name="enddate"/></td>
+            <th width="5%">职务</th>
+            <td>
+              <input class="input-text select-v" type="text" name="post" value="{$list.POST}"/>
+            </td>
+        </tr>
+        <tr>
+            <th width="5%">履历背景</th>
+            <td>
+                <div class="btn-group pull-left mr10 select-v">
+                    <a class="btn-sm btn-select-option">
+                        <span id="bbackground" name="bbackground">
+                            <if condition="$list.BBACKGROUND neq '' ">
+                                {$list.BBACKGROUND}
+                            <else/>
+                                请选择
+                            </if>
+                        </span><i class="icon-caret-down"></i>
+                    </a>
+                    <ul style="display:none;" class="dropdown-menu border-dropdown">
+                        <volist name="bbackground" id="pt">
+                            <li><a value="{$pt.dicvalue}">{$pt.dickey}</a></li>
+                        </volist>
+                    </ul>
+                </div>
+            </td>
+            <th width="15%">是否现任</th><!--colspan="3"-->
+            <td>
+              <if condition="$list.ISINCUMBENT eq '1'">
+                <label><input type="radio" name="isincumbent" id="isincumbent1" value="1" checked="checked"/>是</label>
+                <label><input type="radio" name="isincumbent" id="isincumbent0" value="0"/>否</label>
+                <else/>
+                <label><input type="radio" name="isincumbent" id="isincumbent1" value="1"/>是</label>
+                <label><input type="radio" name="isincumbent" id="isincumbent0" value="0" checked="checked"/>否</label>
+              </if>
+            </td>
+        </tr>
+        <tr>
+            <th>是否有效</th>
+            <td>
+              <if condition="$list.ISVALID eq '1'">
+                <label><input type="radio" name="isvalid" id="isvalid1" value="1" checked="checked"/>是</label>
+                <label><input type="radio" name="isvalid" id="isvalid0" value="0"/>否</label>
+                <else/>
+                <label><input type="radio" name="isvalid" id="isvalid1" value="1"/>是</label>
+                <label><input type="radio" name="isvalid" id="isvalid0" value="0" checked="checked"/>否</label>
+              </if>
+            </td>
+            <th></th>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <th width="20%">专业资格</th>
+            <td colspan="3"><textarea name="professionaltitles" class="textarea-normal">{$list.PROFESSIONALTITLES}</textarea></td>
+        </tr>
+        <tr>
+            <th width="20%">简历</th>
+            <td colspan="3"><textarea name="remark" class="textarea-normal" >{$list.REMARK}</textarea></td>
+        </tr>
+        </tbody>
+    </table>
+    <br />
+    <div class="btnbox text-center">
+        <button class="btn btn-green" id="ManagerAjaxSubmit" type="submit">确认</button>
+        <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+    </div>
+</form>
+<br>
+<script>
+    //下拉切换效果start
+    $(".btn-group").hover(
+      function(){
+        var ui_height = $(this).children(".dropdown-menu").height();
+        if(ui_height>200){
+          $(this).children(".dropdown-menu").css({'height':'150px','overflow-y':'scroll','border-radius':'0 0 4px 4px'});
+          $(this).children(".dropdown-menu").show();
+        }else{
+          $(this).children(".dropdown-menu").css({'border-radius':'0 0 4px 4px'});
+          $(this).children(".dropdown-menu").show();
+        }
+      },
+      function(){
+        $(this).children(".dropdown-menu").hide();
+      });
+
+    $(".dropdown-menu li").on("click",function() {
+      var T = $(this).text();//文本值
+      var D = $(this).find("a").attr('value');//value值
+      var N = $(this).parent("ul").prev(".btn-select-option").find("span").attr('name');//name
+    if(N != 'provinces'){
+        $(this).parent("ul").prev(".btn-select-option").find("span").text(T).css('color','#333');
+        $(this).parent("ul").prev(".btn-select-option").find("span").attr('value',D);
+    } else {
+        $(this).parent("ul").prev(".btn-select-option").find("span").text(T).css('color','#333');
+        $(this).parent("ul").prev(".btn-select-option").find("span").attr('value',D);
+    }
+    $(this).parent("ul").hide();
+    setInputValue(N,D);
+    });
+    //下拉切换效果end
+    function setInputValue(N,V){
+        var str = "input[name="+N+"]";
+        $(str).val(V);
+    }
+
+    //基金经理
+    $("#ManagerAjaxSubmit").click(function(){
+        $("#form2").ajaxSubmit(option2);
+        return false;
+    });
+
+    var option2 = {
+        beforeSubmit: showRequest2,
+        success: function(s){
+            tishi(s.msg);
+            if(s.msg == "成功" || s.msg == "基金经理修改成功" || s.msg == "基金经理添加成功"){
+                //window.setTimeout("window.location='./?m=Admin&c=company&a=company'",1000);
+                $(".layer_bg03").hide();
+                $(".layer_wrap03").hide();
+                managelist(1);
+            }
+        }
+    };
+
+    function showRequest2(){
+        var psname = $('input[name=psname]').val();
+        var begindate = $('input[name=begindate]').val();
+        var post = $('input[name=post]').val();
+        var bbackground = $('input[name=bbackground]').val();
+        var educationlevel = $('input[name=educationlevel]').val();
+        //表单提交前验证
+        if(psname == ''|| psname.length== 0){
+            tishi('姓名不能为空');
+            return false;
+        }
+        if(begindate == ''|| begindate.length==0){
+            tishi('任职日期不能为空');
+            return false;
+        }
+        if(post == '' || post.length==0){
+          tishi('职务不能为空');
+          return false;
+        }
+        if(bbackground == '' || bbackground.length==0){
+          tishi('履历背景不能为空');
+          return false;
+        }
+        if(educationlevel == '' || educationlevel.length==0){
+          tishi('教育程度不能为空');
+          return false;
+        }
+    }
+
+    function managelist(e) {
+      var p = e;//分页
+      $.ajax({
+          url: "./?m=Admin&c=company&a=getmanagerinfoList",
+          data: "&p="+p,
+          type: "post",
+          success:function(s){
+            if(s.msg == '登录信息失效，请重新登录！' || s.msg == '抱歉，您没有此权限！'){
+                tishi(s.message);
+            }else{
+                var htmls = '<tr><th>姓名</th><th>职位</th><th>操作</th></tr>';
+                if(s.list == '' || s.list==null){
+                    htmls += "<tr>";
+                    htmls += "<td colspan='11'><div class='text-center'><div class='iconAll icon-045 mt60'></div><div class='cl-666 mt20 mb60  ft20 bold'>您还没有创建过基金经理，您可以点击“录入”来建立！</div></div></td>";
+                    htmls += "</tr>";
+                }else{
+                    $.each(s.list, function(i, n){
+                        htmls += "<tr>";
+                        htmls += "<td>"+n.PSNAME+"</td>";
+                        htmls += "<td>"+n.POST+"</td>";
+                        htmls += "<td><a href='javascript:void(0);' onclick='editmanager(" + n.ID + ");'>详情</a> | ";
+                        htmls += "<a href='javascript:void(0);'" + "onclick='delmanager(" + n.ID + ");'>删除</a></td>";
+                        htmls += "</tr>";
+                    });
+                }
+                $(".tabs1").html(htmls);
+                if(s.page != ''){
+                    $(".kkpager1").html(s.page);
+                }
+            }
+          }
+      });
+    }
+
+    //出生年月
+    jeDate({
+        dateCell:"#date3",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+    //金融从业起始日期
+    jeDate({
+        dateCell:"#date4",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+    //任职日期--开始日期
+    jeDate({
+        dateCell:"#date5",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+    //任职日期--离职日期
+    jeDate({
+        dateCell:"#date6",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+    //公告--公告日期
+    jeDate({
+        dateCell:"#date8",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+</script>

@@ -1,0 +1,36 @@
+[ 2017-04-10T11:09:00+08:00 ] 106.38.230.190 http://106.2.112.147/proxyip/check
+ERR: 无法加载控制器:Proxyip
+
+[ 2017-04-10T11:32:28+08:00 ] 220.181.108.108 /Home/Player/perShow/id/32.html
+ERR: 无法加载控制器:Player
+
+[ 2017-04-10T12:05:12+08:00 ] 203.208.60.215 /robots.txt
+ERR: 无法加载控制器:Robots.txt
+
+[ 2017-04-10T14:29:46+08:00 ] 180.76.15.18 /Home/Player/perShow/id/9.html
+ERR: 无法加载控制器:Player
+
+[ 2017-04-10T14:51:55+08:00 ] 220.181.108.106 /Home/Corps/index.html?project=%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F&country=%E8%8B%B1%E5%9B%BD&
+ERR: 无法加载控制器:Corps
+
+[ 2017-04-10T15:10:23+08:00 ] 106.38.231.219 http://106.2.112.147/proxyip/check
+ERR: 无法加载控制器:Proxyip
+
+[ 2017-04-10T15:25:15+08:00 ] 220.181.108.173 /Home/Player/index.html?project=&teamshort=&country=&
+ERR: 无法加载控制器:Player
+
+[ 2017-04-10T15:52:11+08:00 ] 203.208.60.214 /robots.txt
+ERR: 无法加载控制器:Robots.txt
+
+[ 2017-04-10T17:12:08+08:00 ] 220.181.108.168 /robots.txt
+ERR: 无法加载控制器:Robots.txt
+
+[ 2017-04-10T19:13:08+08:00 ] 106.38.231.218 http://106.2.112.147/proxyip/check
+ERR: 无法加载控制器:Proxyip
+
+[ 2017-04-10T19:28:46+08:00 ] 123.125.71.102 /Home/Player/index.html?project=&teamshort=VG&country=&
+ERR: 无法加载控制器:Player
+
+[ 2017-04-10T23:17:15+08:00 ] 106.38.230.190 http://106.2.112.147/proxyip/check
+ERR: 无法加载控制器:Proxyip
+

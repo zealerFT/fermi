@@ -1,0 +1,99 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+	<div class="content">
+		<div class="search-menu clearfix">
+			<form action="./?m=Admin&c=customer&a=customermanagement" method="post">
+				<ul class="search-ul position_re">
+					<li class="toolkit-item">
+						<span class="sub-title">客户姓名：</span>
+						<input class="input-text" type="text" name="name" value="{$name}">
+					</li>
+					<li class="toolkit-item position_ab btn-right">
+						<button class="btn btn-green mr15 pull-left" onclick="return selPro(1);"><i class="iconAll icon-011"></i>查询</button>
+						<a class="btn btn-default pull-left" onclick="return clePro();"><i class="iconAll icon-012"></i>重置</a>
+					</li>
+				</ul>
+			</form>
+		</div>
+		</div>
+		<div class="main-box">
+			<div class="main-hd clearfix">
+				<a class="btn btn-button pull-left" href="./?m=Admin&c=customer&a=customerdetail" ><i class="iconAll icon-01"></i>录入</a>
+				<!--<a class="btn btn-button pull-left ml10" onclick="return alter();" name="alter" href=""><i class="iconAll icon-040"></i>修改</a>-->
+				<a class="btn btn-button pull-left ml10" onclick="up_load();" name="alter" href="javascript:void(0);"><i class="iconAll icon-040"></i>导入</a>
+				<a class="btn btn-button pull-left ml10"  href="./?m=Admin&c=customer&a=custExcel"><i class="iconAll icon-040"></i>导出</a>
+				<!--<a class="btn btn-button ml10" onclick="delCus();"><i class="iconAll icon-10"></i>删除</a>-->
+			</div>
+			<table class="tabs" id="mytabs">
+				<tbody>
+				<tr>
+					<th width="20%">创建时间</th>
+					<th width="15%">客户姓名</th>
+					<th width="5%">性别</th>
+					<th width="15%">出生日期</th>
+					<th width="20%">电子邮箱</th>
+					<th width="20%">操作</th>
+				</tr>
+				<volist name="list" id="pt">
+					<tr>
+						<td>{$pt.createdtime}</td>
+						<td>{$pt.realname}</td>
+						<td>{$pt.sex}</td>
+						<td>{$pt.birthday}</td>
+						<td>{$pt.email}</td>
+						<td>
+							<a href="./?m=Admin&c=customer&a=customerdetail&id={$pt.id}">查看</a>/<a href="javascript:void(0);" onclick="delcustomer('{$pt.id}')">删除</a>
+						</td>
+					</tr>
+				</volist>
+				</tbody>
+			</table>
+			<div id="kkpager" class="text-center clearfix">
+				{$page}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layer_bg01 layer_0"></div>
+<div class="layer_wrap01 border layer_0" style="width:700px;">
+	<div class="topper clearfix">
+		<span id="title" class="xf">上传</span><a onclick="closeAll_1()" class="pull-right"></a>
+	</div>
+	<div class="pd30 bc-normal relative">
+		<form action="./?m=Admin&c=customer&a=receive" enctype="multipart/form-data" method="post">
+			<table class="tb_info uperrorForm">
+				<tbody>
+				<tr>
+					<div class="relative">
+						<a class="btn btn-default">选择文件</a>
+						<a class="btn btn-blue pull-right" href="./?m=Admin&c=customer&a=downfilemb">模板下载</a>
+						<a class="btn btn-green mr15 pull-right" onclick="upfile()">导 入</a>
+						<input type='file'  class="fileupInput" id="fileup" name='Excel'>
+						<div id="content" class="mt10"></div>
+					</div>
+					<!--<td><input type='file'  class="btn mr15"  name='Excel'></td>-->
+					<!--<td><a class="btn btn-green mr15" onclick="upfile()">导 入</a></td>-->
+				</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+
+
+<script>
+	/*上传excel*/
+	function up_load(){
+		$(".layer_bg01").show();
+		$(".layer_wrap01").show();
+	}
+
+	function clePro(){
+		$('input[name="name"]').val('');
+	}
+</script>
+<script src="./Web/Admin/View/Customer/js/customermanagement.js"></script>
+<include file="Public:footer_backend" />

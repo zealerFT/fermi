@@ -1,0 +1,143 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu clearfix p0">
+            <ul class="tab-ul clearfix">
+              <if condition="$list.id eq ''">
+                <li><a href="" class="current basic">添加图瀑</a></li>
+                <else/>
+                <li><a href="" class="current basic">修改图瀑</a></li>
+              </if>
+            </ul>
+        </div>
+        <div class="main-box">
+            <div class="panes">
+                <!--基本信息 -->
+              <form  id="PictureForm" action="{$url}" method="post" enctype="multipart/form-data">
+                <div>
+                    <table class="tabs01">
+                        <!--详情-->
+                        <tbody>
+                              <tr>
+                                  <th><span class="red"> * </span>标题</th>
+                                  <td colspan="">
+                                      <input class="input-text" required=""  type="text" name="title" value="{$list.title}" maxlength="200"/>
+                                  </td>
+                                  <th><span class="red"> * </span>来源</th>
+                                  <td>
+                                      <input class="input-text" required="" type="text" name="source" value="{$list.source}" maxlength="100"/>
+                                  </td>
+                                  <th><span class="red"> * </span>作者</th>
+                                  <td>
+                                      <input class="input-text" required="" type="text" name="author" value="{$list.author}" maxlength="100"/>
+                                  </td>
+                              </tr>
+                              <!-- 上传图片 -->
+                              <tr>
+                                  <th><span class="red"> * </span>异步(暂不用)</th>
+                                  <td colspan="10">
+                                    <!--头部，相册选择和格式选择-->
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder">
+                                                <div id="filePicker"></div>
+                                                <p>或将照片拖到这里，单次最多可选300张</p>
+                                            </div>
+                                        </div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress">
+                                                <span class="text">0%</span>
+                                                <span class="percentage"></span>
+                                            </div><div class="info"></div>
+                                            <div class="btns">
+                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </td>
+                              </tr>
+                              <!-- 产品概述 -->
+                              <tr>
+                                  <th><span class="red"> * </span>图片</th>
+                                  <td colspan="10">
+                                      <div class='supervise-list'>
+                                          <div id="addpic">
+                                              <div class="nav-list">
+                                                  <div class="addpic">
+
+                                                  </div>
+                                              </div>
+                                              <div class="nav-list">
+                                                  <div class="nav">
+                                                        <label class="add_label">
+                                                          <div class="fileList" id="preview0">
+                                                              <img class="iconAll_add" >
+                                                          </div>
+                                                          <input type="file" id="file_name0" name="filedata[]" onchange="previewImage(this,'file_name0','preview0')">
+                                                        </label>
+                                                        <label class="add_labe0">
+                                                          <div class="fileList adder">
+                                                              <img class="iconAll icon-054" >
+                                                          </div>
+                                                        </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <!-- 百度编辑器模块 -->
+                              <tr>
+                                  <th><span class="red"> * </span>图片注解</th>
+                                  <td colspan="10">
+                                  <script id="container" name="annotation" type="text/plain" >{$list['annotation']}</script>
+                                  </td>
+                              </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="6">
+                                <div class="text-center mb30 pt30 clearfix">
+                                    <input id="pictureid" name="id" type="hidden" value="{$list.id}">
+                                    <button class="btn btn-green mr15"  type="submit" id="PictureSubmit">确定</button>
+                                    <a class="btn btn-default" href="{:U('Picture/index')}" >返回</a>
+                                </div>
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+             </form>
+                <div class="clearfix">
+                    <div>
+                        <div></div>
+                        <table class="tabs01">
+                            <tbody id="invest">
+                            </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 个人js -->
+<script src="__PUBLIC__/Admin/Js/Picture/datail.js"></script>
+<script src="__PUBLIC__/webuploader/upload.js"></script>
+<script>
+// 百度编辑器初始化
+var ue = UE.getEditor('container');
+//lay插件配置
+layui.use('layedit', function () {
+    layedit = layui.layedit;
+    layeditIndex = layedit.build('shsynopsis', {
+        tool: ['strong', 'italic', 'underline', '|', 'left', 'center', 'right', 'face'],
+        height: 180
+    });
+});
+
+
+</script>
+<include file="Public:footer_backend" />

@@ -1,0 +1,182 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu clearfix p0">
+            <ul class="tab-ul clearfix">
+              <if condition="$list.id eq ''">
+                <li><a href="" class="current basic">添加文章</a></li>
+                <else/>
+                <li><a href="" class="current basic">修改文章</a></li>
+              </if>
+            </ul>
+        </div>
+        <div class="main-box">
+            <div class="panes">
+                <!--基本信息 -->
+              <form  id="BlogForm" action="{$url}" method="post" enctype="multipart/form-data">
+                <div>
+                    <table class="tabs01">
+                            <!--查看产品-->
+                            <tbody>
+                                  <tr>
+                                      <th><span class="red"> * </span>标题</th>
+                                      <td colspan="">
+                                          <input class="input-text" required=""  type="text" name="title" value="{$list.title}" maxlength="200"/>
+                                      </td>
+                                      <th><span class="red"> * </span>小标题</th>
+                                      <td>
+                                          <input class="input-text" required="" type="text" name="littletitle" value="{$list.littletitle}" maxlength="100"/>
+                                      </td>
+                                      <th><span class="red"> * </span>作者</th>
+                                      <td>
+                                          <input class="input-text" required="" type="text" name="author" value="{$list.author}" maxlength="100"/>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <th><span class="red"> * </span>文章类型</th>
+                                      <td>
+                                          <div class="btn-group">
+                                              <a  class="btn-sm btn-select-option">
+                                                  <span id="blogtype" name="blogtype">
+                                                      <if condition="$blogtype neq '' ">
+                                                          {$blogtype}
+                                                          <else/>
+                                                          全部
+                                                      </if>
+                                                  </span><i class="icon-caret-down"></i>
+                                              </a>
+                                              <ul style="display:none;" class="dropdown-menu">
+                                                  <volist name="typelist" id="ss">
+                                                      <li><a value="{$ss.value}">{$ss.name}</a></li>
+                                                  </volist>
+                                              </ul>
+                                          </div>
+                                      </td>
+                                      <th><span class="red"> * </span>文章标签</th>
+                                      <td>
+                                          <div class="btn-group">
+                                              <a  class="btn-sm btn-select-option">
+                                                  <span id="bloglabel" name="bloglabel">
+                                                      <if condition="$bloglabel neq '' ">
+                                                          {$bloglabel}
+                                                          <else/>
+                                                          全部
+                                                      </if>
+                                                  </span><i class="icon-caret-down"></i>
+                                              </a>
+                                              <ul style="display:none;" class="dropdown-menu">
+                                                  <volist name="labellist" id="ss">
+                                                      <li><a value="{$ss.value}">{$ss.name}</a></li>
+                                                  </volist>
+                                              </ul>
+                                          </div>
+                                      </td>
+                                      <th><span class="red"> * </span>关键字</th>
+                                      <td colspan="">
+                                          <input class="input-text" required=""  type="text" name="keywords" value="{$list.keywords}" maxlength="200"/>
+                                      </td>
+                                  </tr>
+                                  <!-- 产品概述 -->
+                                  <tr>
+                                      <th><span class="red"> * </span>文章配图</th>
+                                      <td colspan="10">
+                                          <div class='supervise-list'>
+                                              <div id="addpic">
+                                                  <div class="nav-list">
+                                                      <div class="addpic">
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="nav-list">
+                                                      <div class="nav">
+                                                            <label class="add_label">
+                                                              <div class="fileList" id="preview0">
+                                                                  <img class="iconAll_add" >
+                                                              </div>
+                                                              <input type="file" id="file_name0" name="filedata[]" onchange="previewImage(this,'file_name0','preview0')">
+                                                            </label>
+                                                            <label class="add_labe0">
+                                                              <div class="fileList adder">
+                                                                  <img class="iconAll icon-054" >
+                                                              </div>
+                                                            </label>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </td>
+                                  </tr>
+                            <!-- lay编辑器模块 -->
+                            <tr>
+                                <th><span class="red"> * </span>短文预览</th>
+                                <td colspan="5">
+                                <div style="width: 1024px !important;">
+                                <textarea id="shsynopsis" lay-verify="content" type="text" name="shortsynopsis" value=''>{$list.shortsynopsis}</textarea>
+                                </div>
+                                </td>
+                            </tr>
+                            <!-- ckeditor编辑器模块 -->
+                            <!-- <tr>
+                                <th><span class="red"> * </span>短文预览</th>
+                                <td colspan="5">
+                                <div style="width: 1024px !important;">
+                                  <textarea rows="30" cols="50" name="shortsynopsis">{$list['shortsynopsis']}</textarea>
+                                  <script type="text/javascript">CKEDITOR.replace('shortsynopsis');</script>
+                                </div>
+                                </td>
+                            </tr> -->
+                            <!-- 百度编辑器模块 -->
+                            <tr>
+                                <th><span class="red"> * </span>文章主题</th>
+                                <td colspan="10">
+                                <script id="container" name="synopsis" type="text/plain" >{$list['synopsis']}</script>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="6">
+                                <div class="text-center mb30 pt30 clearfix">
+                                    <input id="blogid" name="id" type="hidden" value="{$list.id}">
+                                    <input id="blogtype" name="blogtype" type="hidden" value="{$list.type}">
+                                    <input id="bloglabel" name="bloglabel" type="hidden" value="{$list.label}">
+                                    <button class="btn btn-green mr15"  type="submit" id="BlogSubmit">确定</button>
+                                    <a class="btn btn-default" href="{:U('Blog/index')}" >返回</a>
+                                </div>
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+             </form>
+                <div class="clearfix">
+                    <div>
+                        <div></div>
+                        <table class="tabs01">
+                            <tbody id="invest">
+                            </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 个人js -->
+<script src="__PUBLIC__/Admin/Js/Blog/detail.js"></script>
+<script>
+// 百度编辑器初始化
+var ue = UE.getEditor('container');
+//lay插件配置
+layui.use('layedit', function () {
+    layedit = layui.layedit;
+    layeditIndex = layedit.build('shsynopsis', {
+        tool: ['strong', 'italic', 'underline', '|', 'left', 'center', 'right', 'face'],
+        height: 180
+    });
+});
+
+</script>
+<include file="Public:footer_backend" />

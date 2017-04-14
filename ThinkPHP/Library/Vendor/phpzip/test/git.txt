@@ -1,0 +1,28 @@
+git config --global user.name  "hqwan890622"
+git config --global user.email "424100112@qq.com"
+
+线上： 
+    1.创建个git用户
+	    useradd  gitdata
+		passwd   gitdata		
+	2.切换至 gitdata用户(可任意建立git用户）
+        su  gitdata
+	3.初始化一个空仓库  (obj:空仓库名称)
+	    git init --bare obj 
+本地：
+    1.初始化 git init
+	2.与线上服务器相连 (project:服务器别名 自定义) obj:线上仓库
+	    git remote add project gitdata@114.215.85.174:obj
+	3.提交
+	    git add .
+		git commit -m "message" 
+	4.上传至线上 (master：分支名称 默认为master )
+	    git push project master
+
+首次档下代码
+    git clone gitdata@114.215.85.174:obj
+	
+更新代码
+    git pull gitdata@114.215.85.174:obj
+	
+	chenle0108

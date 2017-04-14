@@ -1,0 +1,90 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box">
+          <div class="main-hd clearfix" id="change">
+              <a class="btn btn-button pull-left mr20" href="javascript:void(0);" onclick="addrule();"><i class="iconAll icon-01"></i>添加权限</a>
+          </div>
+          <table class="tabs">
+            <tbody>
+                <tr>
+                  <th><input id='checkAll' onclick='check_all()' type='checkbox' class='tabs-radio' /></th>
+                  <th style='text-align:left'>权限名</th>
+                  <th colspan="2">动作</th>
+                  <th colspan="2">标题</th>
+                  <th colspan="2">状态</th>
+                  <th colspan="10">操作</th>
+               </tr>
+               <foreach name="list" item="list">
+                 <tr>
+                   <td >
+                     <input id='pro{$list.id}' name='pro' type='checkbox' value='{$list.id}' class='tabs-radio' />
+                   </td>
+                   <td style='text-align:left'>{$list._name}</td>
+                   <td colspan="2">{$list.name}</td>
+                   <td colspan="2">{$list.title}</td>
+                   <td colspan="2">
+                     <if condition="$list.status eq '1'">
+                       <i class="layui-icon" style="color: #9ACD32;">&#xe605;</i>
+                       <else/>
+                       <i class="layui-icon" style="color: #FF0000;">&#x1006;</i>
+                     </if>
+                   </td>
+                  <td><a href="javascript:void(0);" onclick="addsonrule({$list.id}, {$list.pid});" ><font color='#5db75d'>添加子权限</font></a>&nbsp<a href="javascript:void(0);" onclick="editrule({$list.id}, {$list.pid}, {$list.status}, '{$list.title}', '{$list.name}');" ><font color='#5db75d'>修改</font></a>&nbsp;<a href="javascript:void(0);" onclick="deleterule({$list.id});" ><font color='red'>删除</font></a></td>
+
+                 </tr>
+               </foreach>
+             </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+<div class="layer_bg layer_bg03"></div>
+<div class="layer_wrap layer_wrap03 border mt-100 popping">
+    <div class="topper clearfix">
+        <span class="pull-left">权限操作</span><a onclick="closeAll_1()" class="pull-right"></a><br><br>
+    </div>
+    <form class="ajaxRuleForm"  id="ruleurl" action="#" method="post" >
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="pid" value="">
+        <div class="pl30 pr30 pt30 bc-normal relative layer-box overflow-y-scroll chanpin ">
+          <table class=" uperrorForm tb_info">
+              <tbody>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">标题</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：系统管理" class="input-text" type="text" name="title">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑';">动作</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：Admin/Index/index" class="input-text" type="text" name="name">
+                      </td>
+                  </tr>
+                  <tr>
+                    <th><span class="red"> * </span><font style="font-size:14px;font-family:'微软雅黑';">状态</font></th>
+                    <td>
+                      <label><input type="radio" name="status" value="1"/> 启用</label>
+                      <label><input type="radio" name="status" value="0"/> 禁用</label>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th><i class="layui-icon">&#xe63a;</i><font style="font-size:14px;font-family:'微软雅黑';">说明</font></th>
+                      <td colspan="3">
+                          <span><font style="font-size:14px;font-family:'微软雅黑';color:red;" >*动作*不能重复，否则不能提交！具体情况请联系码农~</font></span>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="btnbox text-center mt20 mb30">
+              <input type="button" id="ajaxrulesubmit"  class="btn btn-green w60" value="确认">
+              <a class="btn btn-default ml20" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+          </div>
+        </div>
+    </form>
+</div>
+<script src="__PUBLIC__/Admin/Js/Rule/rule.js"></script>
+<include file="Public:footer_backend" />

@@ -1,0 +1,168 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu">
+            <ul class="search-ul position_re">
+                <!--input type="hidden" id="roleid" name="roleid"/--><!--角色-->
+                <li class="toolkit-item">
+                    <span class="sub-title">账户名称</span>
+                    <input type="text" id="accountname1" name="accountname1" class="input-text" value="" style="width: 200px;"/>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">手机号码</span>
+                    <input type="text" id="phone1" name="phone1" class="input-text" value="" style="width: 200px;"/>
+                </li>
+                <li class="toolkit-item">
+                    <span class="sub-title">真实姓名</span>
+                    <input type="text" id="realname1" name="realname1" class="input-text" value="" style="width: 200px;"/>
+                </li>
+
+
+                <!--角色-->
+                <!--
+                <li class="toolkit-item">
+                    <span class="sub-title">角色</span>
+                    <div class="btn-group">
+                        <a  class="btn-sm btn-select-option">
+                            <span id="role_id" name="roleid">全部</span><i class="icon-caret-down"></i>
+                        </a>
+                        <ul style="display:none;" class="dropdown-menu">
+                            <volist name="rolelist" id="rl">
+                                <li><a value="{$rl.dicvalue}">{$rl.dickey}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </li>
+                -->
+                <li class="toolkit-item position_ab btn-right">
+                    <a class="btn btn-green mr15 pull-left" onclick="return selaccountlist(1);"><i class="iconAll icon-011"></i>查询</a>
+                    <a class="btn btn-default pull-left" onclick="return clearsearch();"><i class="iconAll icon-012"></i>重置</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="javascript:void (0);" onclick="addaccount()"><i class="iconAll icon-01"></i>增加</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void (0);" onclick="updateaccount()"><i class="iconAll icon-040"></i>修改</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void (0);" onclick="deleteaccount()"><i class="iconAll icon-060"></i>批量删除</a>
+                <a class="btn btn-button pull-left mr20" href="javascript:void (0);" onclick="updatepassword()"><i class="iconAll icon-061"></i> 修改密码</a>
+            </div>
+            <table class="tabs">
+                <tbody>
+
+                </tbody>
+            </table>
+            <div id="kkpager" class="text-center clearfix">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加账户-->
+<div class="layer_bg01 layer_0"></div>
+<div class="layer_wrap01 border layer_0" style="width:700px;">
+    <div class="topper clearfix">
+        <span id="title" class="xf">添加账户</span><a onclick="closeAll_1()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <form id="detail" class="detailform" action="" method="post">
+            <input type="hidden" name="aid"/>
+            <input id="type" type="hidden" name="type" value="1"/>
+            <input id="type" type="hidden" name="addRole"/>
+            <input id="type" type="hidden" name="deleteRole"/>
+            <span id="msg" class="hide"></span>
+            <table class="tb_info uperrorForm">
+                <tbody>
+                <tr>
+                    <td><span class="red"> * </span>账户名称</td>
+                    <td><input type="text" name="accountname" datatype="phone" nullmsg="账户名称不能为空！" errormsg="账户名称格式不正确！" /></td>
+                    <td><span class="red"> * </span>手机号码</td>
+                    <td><input type="text" name="phone" datatype="phone" nullmsg="手机号码不能为空！" errormsg="手机号码格式不正确！" /></td>
+                </tr>
+                <tr>
+                    <td><span class="red"> * </span>真实姓名</td>
+                    <td><input type="text" name="realname" /></td>
+                    <td><span class="red"> * </span>账户类型</td>
+                    <td>
+                        <li class="toolkit-item">
+                            <div class="btn-group">
+                                <a  class="btn-sm btn-select-option">
+                                    <span name="type">普通帐户</span><i class="icon-caret-down"></i>
+                                </a>
+                                <ul style="display:none;" class="dropdown-menu">
+                                    <li><a value="1">普通账户</a></li>
+                                    <li><a value="2">理财师</a></li>
+                                    <li><a value="3">财富机构</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>所属角色</td>
+                    <td colspan="3">
+                        <div class="btn-group">
+                            <input type="hidden" name="roleids" value="">
+                            <input class="input-text input-search btn-select-option" type="text" name="role" style="width:500px;" />
+                            <ul id="tt" class="tree dropdown-menu" checkbox="true" style="display:none;"></ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td><input type="text" name="sex" /></td>
+                    <td>身份证号码</td>
+                    <td><input type="text" name="identitycard" /></td>
+                </tr>
+                <tr>
+                    <td>出生日期</td>
+                    <td><input id="date1" type="text" name="birthday" /></td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="3">
+                        <textarea name="remarks" cols="68" rows="5"></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="btnbox text-center">
+                <button class="btn btn-green" type="submit">确认</button>
+                <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--修改密码-->
+<div class="layer_bg02 layer_0"></div>
+<div class="layer_wrap02 border layer_0" style="width:400px;">
+    <div class="topper clearfix">
+        <span class="xf">修改密码</span><a onclick="closeAll_1()" class="pull-right"></a>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <form id="password" action="./?m=Admin&c=system&a=updatepassword" method="post" autocomplete="off">
+            <input type="hidden" name="accid"/>
+            <table class="tb_info uperrorForm">
+                <tbody>
+                <tr>
+                    <td><span class="red"> * </span>新密码</td>
+                    <td><input type="password" name="password" autocomplete="off"/></td>
+                </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="btnbox text-center">
+                <button class="btn btn-green" type="submit">确认</button>
+                <a class="btn btn-default" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="./Web/Admin/View/System/Js/account.js"></script>
+<include file="Public:footer_backend" />

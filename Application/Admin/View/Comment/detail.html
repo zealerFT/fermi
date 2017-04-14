@@ -1,0 +1,79 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box">
+            <div class="panes">
+                <!--基本信息 -->
+              <form  id="CommentForm" action="{$url}" method="post" enctype="multipart/form-data">
+                <div>
+                    <table class="tabs01">
+                        <!--详情-->
+                        <tbody>
+                              <tr>
+                                  <th><span class="red"> * </span>用户昵称</th>
+                                  <td colspan="">
+                                      <input class="input-text" required=""  readonly="readonly" type="text" name="nickname" value="{$list.nickname}" maxlength="200"/>
+                                  </td>
+                                  <th><span class="red"> * </span>文章标题</th>
+                                  <td>
+                                      <input class="input-text" required="" readonly="readonly" type="text" name="title" value="{$list.title}" maxlength="100"/>
+                                  </td>
+                                  <th><span class="red"> * </span>文章链接</th>
+                                  <td>
+                                      <a target="_blank" href="{:U('Home/Article/index/', array('id' => $list['bid']))}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+                                  </td>
+                              </tr>
+                              <!-- lay编辑器模块 -->
+                              <tr>
+                                  <th><span class="red"> * </span>评论内容</th>
+                                  <td colspan="5">
+                                  <div style="width: 1024px !important;">
+                                  <textarea id="content" lay-verify="content" type="text" name="content" value=''>{$list.content}</textarea>
+                                  </div>
+                                  </td>
+                              </tr>
+                        </tbody>
+                        <tfoot>
+                              <tr>
+                                  <th colspan="6">
+                                      <div class="text-center mb30 pt30 clearfix">
+                                          <input id="commentid" name="id" type="hidden" value="{$list.id}">
+                                          <button class="btn btn-green mr15"  type="submit" id="CommentSubmit">确定</button>
+                                          <a class="btn btn-default" href="{:U('Comment/index')}" >返回</a>
+                                      </div>
+                                  </th>
+                              </tr>
+                        </tfoot>
+                    </table>
+                </div>
+             </form>
+                <div class="clearfix">
+                    <div>
+                        <div></div>
+                        <table class="tabs01">
+                            <tbody id="invest">
+                            </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 个人js -->
+<script src="__PUBLIC__/Admin/Js/Comment/datail.js"></script>
+<script>
+//lay插件配置
+layui.use('layedit', function () {
+    layedit = layui.layedit;
+    layeditIndex = layedit.build('content', {
+        tool: ['strong', 'italic', 'underline', '|', 'left', 'center', 'right', 'face'],
+        height: 180
+    });
+});
+
+
+</script>
+<include file="Public:footer_backend" />

@@ -1,0 +1,77 @@
+<include file="Public:new_header"/>
+<div class="pwd_block">
+    <div class="pwd_frame mauto">
+        <div class="pwd_top mauto">
+            <div class="inline-block ft20 mt20 mb10">找回登录密码</div>
+        </div>
+        <div class="mauto w400 relative">
+            <div class="error  position_ab" id="msg"></div>
+            <form class="form" action="" method="post">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" >
+                    <tbody class="pwd_one">
+                        <tr>
+                            <td>
+                                <div class="clearFix mt40">
+                                    <p class="xf line34 ft16 w80 text-right pr10">手机号码</p>
+                                    <input id='phone' name="phone" placeholder="请输入手机号" class="form-control amend-li w280 xf" type="text" maxlength="11" datatype="phone"  nullmsg="请输入手机号" errormsg="手机号不合法">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="clearFix mt20">
+                                    <p class="xf line34 ft16 w80 text-right pr10">验证码</p>
+                                    <input id="imgyzm" placeholder="请输入图片验证码" class=" form-control xf amend-input w150" type="text" maxlength="4" datatype="n4-4"  nullmsg="请输入图形验证码" errormsg="图形验证码不正确" >
+                                    <img id="verifyImg" class="picMa ml15" title="点击刷新验证码" onclick="changeVerify();" src="./?m=Admin&c=public&a=verify"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="clearFix mt20">
+                                    <p class="xf line34 ft16 w80 text-right pr10">短信码</p>
+                                    <input id="dxyzm" name="dxyzm" placeholder="请输入短信验证码" class="form-control xf amend-input w150"  type="test" maxlength="6" datatype="n6-6"  nullmsg="请输入短信验证码" errormsg="短信验证码不正确">
+                                    <a id="getnumber" class="btn btn-4 xf amend-a ml15"  onclick="getPhoneCode();">获取验证码</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="mt20 pl90">
+                                    <p class="btn btn2 btn_down">下一步</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="pwd_two none">
+                    <tr>
+                        <td>
+                            <div class="clearfix mt40">
+                                <p class="xf line34 ft16 w80 text-right pr10">设置密码</p>
+                                <input id="password" name="password" placeholder="请设置密码" class="form-control amend-li" type="password" maxlength="20" datatype="n20"  nullmsg="请设置密码" errormsg="密码至少6个字符,最多20个字符！">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="clearfix mt20">
+                                <p class="xf line34 ft16 w80 text-right pr10">确认密码</p>
+                                <input id="repassword" placeholder="请再次输入密码" class="form-control amend-li" type="password" maxlength="20" datatype="n20"  nullmsg="请再次输入密码" errormsg="密码至少6个字符,最多20个字符！">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="mt20 pl90">
+                                <input class="btn btn3" value="提交" type="button" onclick="return resetpass();">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./Web/Admin/View/Login/Js/findLoginPwd.js"></script>
+<include file="Public:new_footer"/>

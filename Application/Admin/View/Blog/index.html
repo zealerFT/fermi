@@ -1,0 +1,94 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu">
+            <form action="" method="post">
+                <!--下拉框的form传值 start-->
+                <input id="pro_type" name="pro_type" type="hidden" value="" />   <!--保险公司-->
+                <!--下拉框的form传值 end-->
+                <ul class="search-ul position_re">
+                    <li class="toolkit-item">
+                        <span class="sub-title">文章名</span>
+                        <input type="text" id="title" name="title" class="input-text" value="" style="width: 200px;"/>
+                    </li>
+                    <li class="toolkit-item">
+                        <span class="sub-title">发布时间</span>
+                        <input type="text" id="createdtime" name="createdtime" class="input-text" value=""/>
+                    </li>
+                    <li class="toolkit-item">
+                        <span class="sub-title">文章类型</span>
+                        <div class="btn-group">
+                            <a class="btn-sm btn-select-option">
+                                <span id="blogtype" name="blogtype">全部</span><i class="icon-caret-down"></i>
+                            </a>
+                            <ul style="display:none;" class="dropdown-menu border-dropdown">
+                                <volist name="typelist" id="ss">
+                                    <li><a value="{$ss.value}">{$ss.name}</a></li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="toolkit-item">
+                        <span class="sub-title">文章标签</span>
+                        <div class="btn-group">
+                            <a class="btn-sm btn-select-option">
+                                <span id="bloglabel" name="bloglabel">全部</span><i class="icon-caret-down"></i>
+                            </a>
+                            <ul style="display:none;" class="dropdown-menu border-dropdown">
+                                <volist name="labellist" id="ss">
+                                    <li><a value="{$ss.value}">{$ss.name}</a></li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </li>
+                    <input id="blogtype" name="blogtype" type="hidden" value="">
+                    <input id="bloglabel" name="bloglabel" type="hidden" value="">
+                    <li class="toolkit-item position_ab btn-right">
+                        <a class="btn btn-green mr15 pull-left" onclick="getbloglist()"><i class="iconAll icon-011"></i>查询</a>
+                        <a class="btn btn-default pull-left" onclick="clePro();"><i class="iconAll icon-012"></i>重置</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <!-- <div class="div_nav">
+            <a class="special i-04 bg-color" onclick="getproductlist(1);"><i class="iconAll icon-04 iconList"></i><span class="iconAll icon-10"></span>租金理财</a>
+            <a class="special i-034" onclick="gethoulist(1);"><i class="iconAll icon-029"></i><span class="iconAll icon-10 di_none"></span>房产投资</a>
+        </div> -->
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="{:U('Blog/detail')}"><i class="iconAll icon-01"></i>写文章啦:-D</a>
+            </div>
+            <table class="tabs">
+
+            </table>
+            <div id="kkpager" class="clearfix">
+                <div class="pull-left mlb30 kkpager">{$page}</div>
+                <div class="clearfix">
+                    <a class="btn btn-blue ml10 pull-left skipBtn" onclick="skip()">跳转</a>
+                    <input type="text" name="page_no" class="pull-left skip mr5">页
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function clePro(){
+        $('input[name="product_number"]').val('');
+        $('input[name="productname"]').val('');
+        $('#protype').html('全部');
+        $("#status").html('全部');
+        location.reload();
+    }
+
+    //指定页数跳转
+    function skip(){
+        nowpage = $('input[name="page_no"]').val();
+        if (nowpage) {
+          getproductlist(nowpage);
+        }
+    }
+</script>
+<script src="__PUBLIC__/Admin/Js/Blog/blog.js"></script>
+<include file="Public:footer_backend" />

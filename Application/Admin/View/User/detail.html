@@ -1,0 +1,106 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+	<div class="content ">
+		<div class="error mt15" ></div><!--验证信息报错空白行-->
+		<form action="{$url}" method="post" id="UserForm" >
+			<input id="userid" name="id" type="hidden" value="{$list.id}" />
+			<div class="main-box mt15">
+				<table class="tabs01">
+				<tbody>
+    					<tr>
+      						<th>手机号码</th>
+      						<td>
+        							<input class="input-text" name="phone"  value="{$list.phone}" maxlength="11" datatype="phone" errormsg="手机号不合法" />
+      						</td>
+      						<th><span class="red">* </span>昵称</th>
+      						<td>
+      							  <input  class="input-text" name='nickname'  value="{$list.nickname}" type="text" datatype="*" nullmsg="真实姓名不能为空" maxlength="64"/>
+      						</td>
+      						<th rowspan="3" colspan="1">头像</th>
+      						<td rowspan="3" colspan="1">
+        							<div class="clearfix mb30">
+          								<div id="preview" class="pull-left w150 overflow">
+          									<if condition="$list.avatar eq ''">
+          										<img  src="__PUBLIC__/config/test.jpg" width="150px" height="150px" />
+          									<else/>
+          										<img id="imghead" src="{$list.avatar}" width="150px" height="150px" />
+          									</if>
+          									<!-- <input type="hidden" name='avatar' value="{$list.avatar}" maxlength="256" /> -->
+          								</div>
+        							</div>
+      						</td>
+    					</tr>
+    					<tr>
+      						<th><span class="red">* </span>状态</th>
+      						<td name="status" value="{$list.status}">
+        							<if condition="$list.status eq 0">
+        								<input type="radio" name='status' value="0" checked>&nbsp;&nbsp;有效
+        								<input type="radio" name='status' value="1">&nbsp;&nbsp;无效
+                      <elseif condition="$list.status eq 1"/>
+        								<input type="radio" name='status' value="0" >&nbsp;&nbsp;有效
+        								<input type="radio" name='status' value="1" checked>&nbsp;&nbsp;无效
+                      <else />
+        								<input type="radio" name='status' value="0" >&nbsp;&nbsp;有效
+        								<input type="radio" name='status' value="1">&nbsp;&nbsp;无效
+        							</if>
+      						</td>
+                  <th><span class="red">* </span>邮箱</th>
+    						  <td>
+    							 <input type='email' class="input-text" name="email" value="{$list.email}"  datatype="email" ignore="ignore" errormsg="您输入的邮箱不合法" maxlength="64"/>
+    						  </td>
+    					</tr>
+    					<tr>
+    						  <th>最后登录IP</th>
+    						  <td>
+    							    <input type='text' class="input-text" name="last_login_ip" value="{$list.last_login_ip}" />
+    						  </td>
+    						  <th>最后登录时间</th>
+    						  <td><input class="input-text" name="last_login_time" value="{$list.last_login_time}" /></td>
+    					</tr>
+    					<tr>
+      						<th>登录次数</th>
+      						<td><input class="input-text" name="times" value="{$list.times}" /></td>
+      						<th>创建时间</th>
+      						<td>
+                    <if condition="$list.createdtime eq ''">
+                      <else/>
+                      <input class="input-text" readonly="readonly" name="createdtime" value="{$list.createdtime}" />
+                    </if>
+      						</td>
+      						<th rowspan="3" colspan="1">二维码</th>
+      						<td rowspan="3" colspan="1">
+                       <img  src="__PUBLIC__/config/original.gif" width="150px" height="150px" />
+      						</td>
+    					</tr>
+    					<tr>
+    						  <th>备注</th>
+    						  <td rows="3" colspan="3"><textarea  name='remarks' rows="4" cols="100" class="textarea-normal" style="width:96%;" >{$list.remarks}</textarea></td>
+    					</tr>
+				</tbody>
+				</table>
+				<div class="text-center mb30 pt30 clearfix">
+					<input type="button" id="UserSubmit"  value="保存" class="btn btn-green mr15" />
+					<a class="btn btn-default mr15" href="{:U('User/index')}" class="btn btn-default">返回</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- 个人js -->
+<script src="__PUBLIC__/Admin/Js/User/datail.js"></script>
+<!-- <script src="__PUBLIC__/webuploader/upload.js"></script> -->
+<script>
+// 百度编辑器初始化
+// var ue = UE.getEditor('container');
+//lay插件配置
+layui.use('layedit', function () {
+    layedit = layui.layedit;
+    layeditIndex = layedit.build('shsynopsis', {
+        tool: ['strong', 'italic', 'underline', '|', 'left', 'center', 'right', 'face'],
+        height: 180
+    });
+});
+</script>
+<include file="Public:footer_backend" />

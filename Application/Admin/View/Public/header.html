@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="keywords" content="首页" />
+    <meta name="description" content="首页,智裕创赢" />
+    <title>智裕创赢</title>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/Css/reset.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/Css/common.css">
+    <script src="__PUBLIC__/Admin/Js/jquery-1.9.1.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/main.js"></script>
+</head>
+<body>
+<div class="header ">
+    <div class="container clearFix">
+        <div class="logo xf">
+            <a href="#"><img src="./Web/Admin/View/Public/Images/logo.jpg"></a>
+        </div>
+        <div class="nav xr">
+            <div class="nav_btn">
+                <a class="btn btn-danger a-register"  target="_blank">注册</a><!--href="http://cloud.rongli.com/?c=login&a=register"-->
+                <a class="btn btn-default ml10 a-landing"  target="_blank">登录</a><!--href="http://cloud.rongli.com/?c=login&a=login"-->
+            </div>
+        </div>
+        <div class="nav xr">
+            <ul>
+                <eq name="mode_name" value="index">
+                    <li><a href="./?c=Index&a=index" class="on">首页</a></li>
+                    <else />
+                    <li><a href="./?c=Index&a=index">首页</a></li>
+                </eq>
+                <eq name="mode_name" value="product">
+                    <li><a href="./?c=Product&a=productlist" class="on product">产品与服务</a></li>
+                    <else/>
+                    <li><a href="./?c=Product&a=productlist" class="product">产品与服务</a></li>
+                </eq>
+                <eq name="mode_name" value="members">
+                    <li><a href="./?c=Members&a=members" class="on">集团成员</a></li>
+                    <else />
+                    <li><a href="./?c=Members&a=members">集团成员</a></li>
+                </eq>
+                <eq name="mode_name" value="aboutus">
+                    <li><a href="./?c=Aboutus&a=aboutuszhiyu" class="on abUs">关于我们</a></li>
+                    <else/>
+                    <li><a href="./?c=Aboutus&a=aboutuszhiyu" class="abUs">关于我们</a></li>
+                </eq>
+            </ul>
+        </div>
+        <div class="qgcode-right">
+            <div>
+                <div class="logo-weidian">
+                    <img src="./Web/Admin/View/Public/Images/weidian.png"><br />
+                    移动站
+                </div>
+                <!--div class="logo-weidian icon10-1">
+                    <img src="./Web/Admin/View/Public/Images/ios.png"><br />
+                    扫一扫<br />智裕创赢苹果端
+                </div-->
+                <div class="logo-weidian">
+                    <img src="./Web/Admin/View/Public/Images/android.png"><br />
+                    下载安卓版android
+                </div>
+            </div>
+            <ul>
+                <li><i class="iconAll icon9"></i></li>
+                <!--<li><i class="iconAll icon10"></i></li>-->
+                <li><i class="iconAll icon11"></i></li>
+            </ul>
+        </div>
+        <div class="layer_bg layer_landing"></div>
+        <div class="layer_wrap">
+            <div class="login-box">
+                <div class="landing">
+                    <h1>账号登陆</h1>
+                    <div class="error"></div>
+                    <form class="form2" action="#" >
+                        <ul>
+                            <li>
+                                <i class="iconAll icon12"></i>
+                                <input type="text" name="user" placeholder="请输入手机号">
+                            </li>
+                            <li>
+                                <i class="iconAll icon13"></i>
+                                <input type="password" name="password" placeholder="请输入密码">
+                            </li>
+                        </ul>
+                        <div class="clearFix">
+                            <a href="./?m=Admin&c=Index&a=password" target="_blank" class="xr yellow">忘记密码？</a>
+                        </div>
+                        <button type="submit" class="btn btn-danger">登陆</button>
+                    </form>
+                    <div class="account">
+                        <span>没有账号？</span>
+                        <a href="#" class="yellow a-register">免费注册</a>
+                    </div>
+                </div>
+            </div>
+            <div class="login-box">
+                <div class="register">
+                    <h1>免费注册</h1>
+                    <div class="error"></div>
+                    <form class="form2" action="kk.html">
+                        <ul>
+                            <li>
+                                <i class="iconAll icon12"></i>
+                                <input type="text" name="phone" id="phone" placeholder="请输入手机号">
+                            </li>
+                            <li class="clearFix">
+                                <i class="iconAll icon14"></i>
+                                <input type="text" name="imgyzm" id="imgyzm" placeholder="请输入图片验证码" class="xf input-width">
+                                <img class="xf imgyzm" src="./Web/Admin/View/Public/Images/yam.png">
+                            </li>
+                            <li class="clearFix">
+                                <i class="iconAll icon15"></i>
+                                <input type="text" name="dxyzm" id="dxyzm" placeholder="请输入短信验证码" class="xf input-width">
+                                <div class="xf">
+                                    <a class="btn btn-green dxyzm">获取验证码</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="iconAll icon12"></i>
+                                <input type="password" name="pwd" id="pwd" placeholder="请设置密码">
+                            </li>
+                            <li>
+                                <i class="iconAll icon12"></i>
+                                <input type="password" name="repwd" id="repwd" placeholder="请再次输入密码">
+                            </li>
+                            <li class="clearFix">
+                                <label>
+                                    <input type="checkbox" checked class="xf">
+                                    <span class="check">
+                                        同意<a href="#" class="yellow">《网络协议服务书》</a><a href="#" class="yellow">《合格投资者认证书》</a>
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                        <button type="submit" class="btn btn-danger">注册</button>
+                    </form>
+                    <div class="account">
+                        <span>已有账号？请</span>
+                        <a href="#" class="yellow a-landing">登陆</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

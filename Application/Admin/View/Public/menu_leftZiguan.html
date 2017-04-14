@@ -1,0 +1,104 @@
+<!--左侧导航-->
+<div class="sidebar overflow" role="navigation">
+    <div class="sidebar-nav">
+        <!-- <div class="logoTop">
+            <div></div>
+        </div> -->
+      <ul class="sidebar-ul">
+           <li class="sldebar-li">
+               <div class="link-title">
+                   <i class="iconAll icon-018"></i><a href="{:U('Index/index')}" class="management-center">博客管理</a><i class="iconAll  icon-019 i"></i>
+               </div>
+               <ul class="tas-nav tas-ul">
+                 <eq name="mode_name" value="blog">
+                     <li><a href="{:U('Blog/index')}"  class="link-item itemon"><i class="iconAll icon-023"></i>文章管理</a></li>
+                 <else />
+                     <li><a href="{:U('Blog/index')}"  class="link-item"><i class="iconAll icon-023"></i>文章管理</a></li>
+                 </eq>
+                 <eq name="mode_name" value="picture">
+                     <li><a href="{:U('Picture/index')}" class="link-item itemon"><i class="iconAll icon-048"></i>图瀑管理</a></li>
+                     <else />
+                     <li><a href="{:U('Picture/index')}" class="link-item"><i class="iconAll icon-048"></i>图瀑管理</a></li>
+                 </eq>
+                 <if condition="$mode_name eq comment">
+                     <li><a href="{:U('Comment/index')}"  class="link-item itemon"><i class="iconAll icon-047"></i>评论管理</a></li>
+                     <else/>
+                     <li><a href="{:U('Comment/index')}"  class="link-item"><i class="iconAll icon-047"></i>评论管理</a></li>
+                 </if>
+                 <eq name="mode_name" value="user">
+                     <li><a href="{:U('User/index')}" class="link-item itemon"><i class="iconAll icon-056"></i>会员管理</a></li>
+                     <else />
+                     <li><a href="{:U('User/index')}" class="link-item"><i class="iconAll icon-056"></i>会员管理</a></li>
+                 </eq>
+               </ul>
+           </li>
+        </ul>
+        <ul class="sidebar-ul">
+            <li class="sldebar-li">
+                <div class="link-title">
+                    <i class="iconAll icon-018"></i><a href="#" class="management-center">管理中心</a><i class="iconAll  icon-019 i icon-057"></i>
+                </div>
+                <ul class="tas-nav tas-ul">
+                    <eq name="mode_name" value="managementCenter">
+                        <li><a href="#" class="link-item itemon"><i class="iconAll icon-020"></i>个人中心</a></li>
+                    <else />
+                        <li><a href="#" class="link-item"><i class="iconAll icon-020"></i>个人中心</a></li>
+                    </eq>
+                    <eq name="mode_name" value="ruleindex">
+                        <li><a href="{:U('Admin/Rule/index')}"  class="link-item itemon"><i class="iconAll icon-048"></i>权限管理</a></li>
+                        <else />
+                        <li><a href="{:U('Admin/Rule/index')}"  class="link-item"><i class="iconAll icon-048"></i>权限管理</a></li>
+                    </eq>
+                    <eq name="mode_name" value="userindex">
+                        <li><a href="{:U('Admin/Rule/userindex')}" class="link-item itemon"><i class="iconAll icon-021"></i>用户管理</a></li>
+                    <else />
+                        <li><a href="{:U('Admin/Rule/userindex')}" class="link-item"><i class="iconAll icon-021"></i>用户管理</a></li>
+                    </eq>
+                    <eq name="mode_name" value="roleindex">
+                        <li><a href="{:U('Admin/Rule/roleindex')}" class="link-item itemon"><i class="iconAll icon-022"></i>角色管理</a></li>
+                    <else />
+                        <li><a href="{:U('Admin/Rule/roleindex')}" class="link-item"><i class="iconAll icon-022"></i>角色管理</a></li>
+                    </eq>
+                    <eq name="mode_name" value="commissio">
+                        <li><a href="#" class="link-item itemon"><i class="iconAll icon-058"></i>数据统计</a></li>
+                        <else />
+                        <li><a href="#" class="link-item"><i class="iconAll icon-058"></i>数据统计</a></li>
+                    </eq>
+                    <eq name="mode_name" value="accountManagement">
+                        <li><a href="#"  class="link-item itemon"><i class="iconAll icon-025"></i>系统设置</a></li>
+                    <else />
+                        <li><a href="#"  class="link-item"><i class="iconAll icon-025"></i>系统设置</a></li>
+                    </eq>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--弹出提示框-->
+<div class="layer_bg_tishi"></div>
+<div class="layer_wrap_tishi border">
+    <div class="topper clearfix">
+        <span class="pull-left"><i class="iconAll icon-043"></i>提示信息</span>
+    </div>
+    <div class="pd30 bc-normal relative">
+        <p class="text-center f14" id="message_error"></p>
+    </div>
+    <div class="l_footer"><a onclick="close_tishi()">确定</a></div>
+</div>
+<script>
+    $(function(){
+        var sldebar = $(".sldebar-li");
+        var link = sldebar.find(".link-title");
+        var a = sldebar.find("a");
+        link.on("click",function(){
+            $(this).next(".tas-ul").slideToggle();
+            $(this).find(".i").toggleClass("icon-057");
+        });
+        a.each(function(i){
+            if(a.eq(i).hasClass("itemon")){
+                $(this).parent().parent().show();
+                $(this).parent().parent().parent().parent().siblings().find('.tas-ul').hide();
+            }
+        });
+    });
+</script>

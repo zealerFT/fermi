@@ -1,0 +1,34 @@
+﻿//*** IP
+114.215.85.174
+
+//*** svn 创建目录
+
+/home/svndata  
+svnadmin create *
+
+MySQL:
+account:root
+password:84da2a5f48
+
+grant all on *.* to root@"%" identified by "84da2a5f48";
+
+//*** apache  域名配置目录 
+
+/alidata/server/httpd/conf/vhosts/*.conf
+参考test.conf
+
+
+//*** 用户
+feiteng   ft216409FT   
+
+
+FTP:
+account:www
+password:4KGsI1fGA
+
+
+YZP890622Z
+
+
+
+yum install MySQL-python

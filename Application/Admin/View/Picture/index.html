@@ -1,0 +1,69 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu">
+            <form action="" method="post">
+                <ul class="search-ul position_re">
+                    <li class="toolkit-item">
+                        <span class="sub-title">图片名</span>
+                        <input type="text" id="title" name="title" class="input-text" value="" style="width: 200px;"/>
+                    </li>
+                    <li class="toolkit-item">
+                        <span class="sub-title">发布时间</span>
+                        <input type="text" id="createtime" name="createtime" class="input-text" value=""/>
+                    </li>
+                    <li class="toolkit-item">
+                        <span class="sub-title">作者</span>
+                        <input type="text" id="author" name="author" class="input-text" value=""/>
+                    </li>
+                    <li class="toolkit-item position_ab btn-right">
+                        <a class="btn btn-green mr15 pull-left" onclick="getpiclist()"><i class="iconAll icon-011"></i>查询</a>
+                        <a class="btn btn-default pull-left" onclick="clePro();"><i class="iconAll icon-012"></i>重置</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="{:U('Picture/detail')}"><i class="iconAll icon-01"></i>加图啦:-D</a>
+            </div>
+            <table class="tabs">
+
+            </table>
+            <div id="kkpager" class="clearfix">
+                <div class="pull-left mlb30 kkpager">{$page}</div>
+                <div class="clearfix">
+                    <a class="btn btn-blue ml10 pull-left skipBtn" onclick="skip()">跳转</a>
+                    <input type="text" name="page_no" class="pull-left skip mr5">页
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function clePro(){
+        $('input[name="title"]').val('');
+        $('input[name="createtime"]').val('');
+        $('input[name="author"]').val('');
+        location.reload();
+    }
+
+    //指定页数跳转
+    function skip(){
+        nowpage = $('input[name="page_no"]').val();
+        if (nowpage) {
+          getpiclist(nowpage);
+        }
+    }
+
+    jeDate({
+        dateCell:"#createtime",
+        format:"YYYY-MM-DD",
+        isTime:false,
+        minDate:"1900-01-01"
+    })
+</script>
+<script src="__PUBLIC__/Admin/Js/Picture/index.js"></script>
+<include file="Public:footer_backend" />

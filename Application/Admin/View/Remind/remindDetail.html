@@ -1,0 +1,187 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="search-menu clearfix p0">
+            <span class="tit">新建提醒</span>
+        </div>
+        <div class="main-box clearfix">
+            <div class="w66 pull-left">
+                <form action="./?m=Admin&c=message&a=savemsg" method="post">
+                    <div class="main p40">
+                        <table class="tb_info">
+                            <tbody>
+                            <tr>
+                                <th width="20%"><span class="red"> * </span>提醒事项</th>
+                                <td>
+                                    <div class="clearfix">
+                                        <div class="btn-group pull-left mr10">
+                                            <a class="btn-sm btn-select-option">
+                                                <if condition="$list.orderbelong neq ''">
+                                                    <span name = 'orderbelong'>{$list.orderbelong}</span><i class="icon-caret-down"></i>
+                                                    <else />
+                                                    <span name = 'orderbelong' >请选择</span><i class="icon-caret-down"></i>
+                                                </if>
+                                            </a>
+                                            <ul class="dropdown-menu border-dropdown">
+                                                <!--<volist name="rl_order_basic_order_long" id="pd">
+                                                    <li><a value="{$pd.dicvalue}">{$pd.dickey}</a></li>
+                                                </volist>-->
+                                                <li><a value="0">产品开放日提醒</a></li>
+                                                <li><a value="1">产品分红提醒</a></li>
+                                                <li><a value="2">产品到期提醒</a></li>
+                                                <li><a value="3">产品清算日提醒</a></li>
+                                                <li><a value="4">产品成立提醒</a></li>
+                                                <li><a value="5">产品赎回提醒</a></li>
+                                                <li><a value="6">产品申购提醒</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="20%"><span class="red"> * </span>提醒方式</th>
+                                <td>
+                                    <label class="radio-inline pl0">
+                                        <input type="checkbox" value="1">站内信
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="20%"><span class="red"> * </span>提醒关联</th>
+                                <td>
+                                    <div>
+                                        关联产品：
+                                        <label style="line-height:50px;">
+                                            <input type="radio" name="verifyflg" value="0" checked>全部产品
+                                        </label>
+                                        <label>
+                                            <div class="clearfix ml10">
+                                                <div class="btn-group pull-left mr10">
+                                                    <a class="btn-sm btn-select-option">
+                                                        <if condition="$list.orderbelong neq ''">
+                                                            <span name = 'orderbelong'>{$list.orderbelong}</span><i class="icon-caret-down"></i>
+                                                            <else />
+                                                            <span name = 'orderbelong' >请选择</span><i class="icon-caret-down"></i>
+                                                        </if>
+                                                    </a>
+                                                    <ul class="dropdown-menu border-dropdown">
+                                                        <!--<volist name="rl_order_basic_order_long" id="pd">
+                                                            <li><a value="{$pd.dicvalue}">{$pd.dickey}</a></li>
+                                                        </volist>-->
+                                                        <li><a value="0">保险产品5号</a></li>
+                                                        <li><a value="1">保险产品6号</a></li>
+                                                    </ul>
+                                                </div>
+                                                <a class="iconAll icon-01 xinjia"></a>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="namesBox pl0">
+                                        <span class="names">就卡上打<i></i></span>
+                                        <span class="names">就卡<i></i></span>
+                                        <span class="names">就卡阿斯蒂芬<i></i></span>
+                                        <span class="names">就卡阿斯蒂芬<i></i></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="20%"><span class="red"> * </span>提醒日期</th>
+                                <td>
+                                    <div class="clearfix">续保日前：
+                                        <div class="btn-group mr10 w100">
+                                            <a class="btn-sm btn-select-option w100">
+                                                <if condition="$list.orderbelong neq ''">
+                                                    <span name = 'orderbelong'>{$list.orderbelong}</span><i class="icon-caret-down"></i>
+                                                    <else />
+                                                    <span name = 'orderbelong' >请选择</span><i class="icon-caret-down"></i>
+                                                </if>
+                                            </a>
+                                            <ul class="dropdown-menu border-dropdown w100">
+                                                <!--<volist name="rl_order_basic_order_long" id="pd">
+                                                    <li><a value="{$pd.dicvalue}">{$pd.dickey}</a></li>
+                                                </volist>-->
+                                                <li><a value="0">1</a></li>
+                                                <li><a value="1">2</a></li>
+                                                <li><a value="2">3</a></li>
+                                                <li><a value="3">4</a></li>
+                                                <li><a value="4">5</a></li>
+                                            </ul>
+                                        </div>天提醒
+                                    </div>
+                                    <div class="mt10">续保日后：
+                                        <div class="btn-group mr10 w100">
+                                            <a class="btn-sm btn-select-option w100">
+                                                <if condition="$list.orderbelong neq ''">
+                                                    <span name = 'orderbelong'>{$list.orderbelong}</span><i class="icon-caret-down"></i>
+                                                    <else />
+                                                    <span name = 'orderbelong' >请选择</span><i class="icon-caret-down"></i>
+                                                </if>
+                                            </a>
+                                            <ul class="dropdown-menu border-dropdown w100">
+                                                <!--<volist name="rl_order_basic_order_long" id="pd">
+                                                    <li><a value="{$pd.dicvalue}">{$pd.dickey}</a></li>
+                                                </volist>-->
+                                                <li><a value="0">1</a></li>
+                                                <li><a value="1">2</a></li>
+                                                <li><a value="2">3</a></li>
+                                                <li><a value="3">4</a></li>
+                                                <li><a value="4">5</a></li>
+                                            </ul>
+                                        </div>天提醒
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th width="20%"><span class="red"> * </span>提醒频率</th>
+                                <td>
+                                    <div class="clearfix">
+                                        <div class="btn-group pull-left mr10">
+                                            <a class="btn-sm btn-select-option">
+                                                <if condition="$list.orderbelong neq ''">
+                                                    <span name = 'orderbelong'>{$list.orderbelong}</span><i class="icon-caret-down"></i>
+                                                    <else />
+                                                    <span name = 'orderbelong' >请选择</span><i class="icon-caret-down"></i>
+                                                </if>
+                                            </a>
+                                            <ul class="dropdown-menu border-dropdown">
+                                                <!--<volist name="rl_order_basic_order_long" id="pd">
+                                                    <li><a value="{$pd.dicvalue}">{$pd.dickey}</a></li>
+                                                </volist>-->
+                                                <li><a value="0">每周</a></li>
+                                                <li><a value="1">每月</a></li>
+                                                <li><a value="2">每季度</a></li>
+                                                <li><a value="3">每年</a></li>
+                                                <li><a value="4">自定义</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>消息内容</th>
+                                <td>
+                                    <if condition="$list.detail neq ''">
+                                        <textarea class="textarea-normal" name="detail" type="text">{$list.detail}</textarea>
+                                        <else />
+                                        <textarea class="textarea-normal" name="detail" type="text"></textarea>
+                                    </if>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <if condition="$list eq ''">
+                        <div class="pt20 text-center">
+                            <button class="btn btn-green" type="submit">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="./?m=Admin&c=message&a=messagemanagement" class="btn btn-default">返回</a>
+                        </div>
+                    </if>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer_backend" />

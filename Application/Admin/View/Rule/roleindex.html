@@ -1,0 +1,52 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0);" onclick="addrole();"><i class="iconAll icon-01"></i>添加角色</a>
+            </div>
+            <table class="tabs">
+
+            </table>
+        </div>
+    </div>
+</div>
+<div class="layer_bg layer_bg03"></div>
+<div class="layer_wrap layer_wrap03 border mt-100 popping">
+    <div class="topper clearfix">
+        <span class="pull-left">角色(用户组)操作</span><a onclick="closeAll_1()" class="pull-right"></a><br><br>
+    </div>
+    <form class="ajaxRoleForm"  id="roleurl" action="#" method="post" >
+        <input type="hidden" name="id" value="">
+        <div class="pl30 pr30 pt30 bc-normal relative layer-box overflow-y-scroll chanpin ">
+          <table class=" uperrorForm tb_info">
+              <tbody>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">角色</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：财务管理" class="input-text" type="text" name="title">
+                      </td>
+                  </tr>
+                  <tr>
+                    <th><span class="red"> * </span><font style="font-size:14px;font-family:'微软雅黑';">状态</font></th>
+                    <td>
+                      <label><input type="radio" name="status" value="1"/> 启用</label>
+                      <label><input type="radio" name="status" value="0"/> 禁用</label>
+                    </td>
+                  </tr>
+                  <tr>
+
+                  </tr>
+              </tbody>
+          </table>
+          <div class="btnbox text-center mt20 mb30">
+              <input type="button" id="ajaxrolesubmit"  class="btn btn-green w60" value="确认">
+              <a class="btn btn-default ml20" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+          </div>
+        </div>
+    </form>
+</div>
+<script src="__PUBLIC__/Admin/Js/Rule/role.js"></script>
+<include file="Public:footer_backend" />

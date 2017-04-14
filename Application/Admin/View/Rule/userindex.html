@@ -1,0 +1,117 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box">
+            <div class="main-hd clearfix" id="change">
+                <a class="btn btn-button pull-left mr20" href="javascript:void(0);" onclick="adduser();"><i class="iconAll icon-01"></i>添加用户</a>
+            </div>
+            <table class="tabs">
+
+            </table>
+        </div>
+    </div>
+</div>
+<!-- 添加用户 -->
+<div class="layer_bg layer_bg03"></div>
+<div class="layer_wrap layer_wrap03 border mt-100 popping">
+    <div class="topper clearfix">
+        <span class="pull-left">添加角色</span><a onclick="closeAll_1()" class="pull-right"></a><br><br>
+    </div>
+    <form class="ajaxUserForm"  id="userurl" action="#" method="post" >
+        <input type="hidden" name="id" value="">
+        <div class="pl30 pr30 pt30 bc-normal relative layer-box overflow-y-scroll chanpin ">
+          <table class=" uperrorForm tb_info">
+              <tbody>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">用户名</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：admin" class="input-text" type="text" name="user_login">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">邮箱</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：mayun@aliyun.com" class="input-text" type="email" name="user_email">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">密码</font></th>
+                      <td colspan="3">
+                          <input class="input-text" type="password" name="user_pass">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">重复密码</font></th>
+                      <td colspan="3">
+                          <input  class="input-text" type="password" name="re_pass">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">所属角色</font></th>
+                      <td colspan="3">
+                          <select id="select_user" class="" name="group_id">
+                            <option value ="">请选择角色</option>
+                            <foreach name="role" item="role">
+                              <option value ="{$role['id']}">{$role['title']}</option>
+                            </foreach>
+                          </select>
+
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="btnbox text-center mt20 mb30">
+              <input type="button" id="ajaxUserSubmit"  class="btn btn-green w60" value="确认">
+              <a class="btn btn-default ml20" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+          </div>
+        </div>
+    </form>
+</div>
+<!-- 编辑用户 -->
+<div class="layer_bg04"></div>
+<div class="layer_wrap04 border mt-100 popping">
+    <div class="topper clearfix">
+        <span class="pull-left">编辑角色</span><a onclick="closeAll_1()" class="pull-right"></a><br><br>
+    </div>
+    <form class="ajaxUserForm1"  id="userurl_edit" action="#" method="post" >
+        <input type="hidden" name="id" value="">
+        <div class="pl30 pr30 pt30 bc-normal relative layer-box overflow-y-scroll chanpin ">
+          <table class=" uperrorForm tb_info">
+              <tbody>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">用户名</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：admin" class="input-text" type="text" name="user_login1">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><span class="red">*</span><font style="font-size:14px;font-family:'微软雅黑'">邮箱</font></th>
+                      <td colspan="3">
+                          <input placeholder="例如：mayun@aliyun.com" class="input-text" type="email" name="user_email1">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><font style="font-size:14px;font-family:'微软雅黑'">密码</font></th>
+                      <td colspan="3">
+                          <input class="input-text" type="password" name="user_pass1">
+                      </td>
+                  </tr>
+                  <tr>
+                      <th><font style="font-size:14px;font-family:'微软雅黑'">重复密码</font></th>
+                      <td colspan="3">
+                          <input  class="input-text" type="password" name="re_pass1">
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="btnbox text-center mt20 mb30">
+              <input type="button" id="ajaxUserSubmit1"  class="btn btn-green w60" value="确认">
+              <a class="btn btn-default ml20" href="javascript:void(0);" onclick="closeAll_1()">取消</a>
+          </div>
+        </div>
+    </form>
+</div>
+<script src="__PUBLIC__/Admin/Js/Rule/user.js"></script>
+<include file="Public:footer_backend" />

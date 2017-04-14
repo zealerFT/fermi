@@ -1,0 +1,97 @@
+<include file="Public:new_header"/>
+<div class="login_bg login-box">
+    <div class="container">
+        <div class="login">
+            <if condition="$_SESSION['user']['accountBasic']['id'] neq ''">
+                <div>
+                    <div class="title">检测到已登录的账户</div>
+                    <div class="p30">
+                        <div class="text-center">
+                            <img style="width: 100px;height: 100px;border-radius: 50%;" class="mr5" src="{$_SESSION['userpic']}">
+                        </div>
+                        <div class="text-center mt30">
+                            {$_SESSION['user']['accountBasic']['accountname']}
+                        </div>
+                        <div class="con">
+                            <a href="./?m=Admin&c=management" class="btn btn1">进入管理中心</a>
+                        </div>
+                    </div>
+                </div>
+                <else/>
+                <div>
+                    <div class="title">免费注册</div>
+                    <!--理财师注册-->
+                    <div class="con relative overflow">
+                        <div class="error" id="msg"></div>
+                        <form class="form" action="./?m=Admin&c=Login&a=registerex" method="post" onsubmit="return validateFormReg();">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="relative">
+                                                <input id='phone' name="phone" placeholder="请输入手机号" class="form-control amend-li" type="text" maxlength="11" datatype="phone" ajaxurl="./?m=Admin&c=login&a=checkaccountname" nullmsg="请输入手机号" errormsg="手机号不合法" />
+                                                <i class="icon4"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="relative">
+                                                <input id="imgyzm" placeholder="请输入图片验证码" class=" form-control pull-left amend-input" type="text" maxlength="4" datatype="n4-4"  nullmsg="请输入图形验证码" errormsg="图形验证码不正确" >
+                                                <i class="icon6"></i>
+                                                <!--<img class="picMa"/>-->
+                                                <img id="verifyImg" class="picMa" title="点击刷新验证码" onclick="changeVerify();" src="./?m=Admin&c=public&a=verify"  style="width:116px !important;"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="relative clearfix">
+                                                <input id="dxyzm" name="dxyzm" placeholder="请输入短信验证码" class=" form-control pull-left amend-input"  type="test" maxlength="6" datatype="n6-6"  nullmsg="请输入短信验证码" errormsg="短信验证码不正确">
+                                                <i class="icon3"></i>
+                                                <a id="getnumber" class="btn btn-green float-left amend-a"  onclick="getPhoneCode();">获取验证码</a>
+                                                <!--a id="getnumber" class="btn btn-default float-left " disabled="disabled">60s后重发</a-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="relative">
+                                                <input id="password" name="password" placeholder="请设置密码" class="form-control amend-li" type="password" maxlength="20" datatype="n20"  nullmsg="请设置密码" errormsg="密码至少6个字符,最多20个字符！">
+                                                <i class="icon5"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="relative">
+                                                <input id="repassword" placeholder="请再次输入密码" class="form-control amend-li" type="password" maxlength="20" datatype="n20"  nullmsg="请再次输入密码" errormsg="密码至少6个字符,最多20个字符！">
+                                                <i class="icon8"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" checked class="position_re" style="top: 2px;">
+                                                同意并阅读
+                                            </label>
+                                            <a href="./?m=Admin&c=Login&a=agreement" class="abq deal1">《网络协议服务书》</a>
+                                            <a href="./?m=Admin&c=Login&a=agreement2" class="abq deal2">《合格投资者认证书》</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="btn btn1-1" value="注册" type="submit"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="bottom"><span class="operate-bar">已有账号？请</span>&nbsp;<a href="./?m=Admin&c=Login&a=login" target="_self" class="abq">登录</a>	</div>
+                    </div>
+                </div>
+            </if>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./Web/Admin/View/Login/Js/register.js"></script>
+<include file="Public:new_footer"/>

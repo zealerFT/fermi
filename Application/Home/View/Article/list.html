@@ -1,0 +1,139 @@
+<include file="Public:header" />
+<style media="screen">
+	.layui-laypage .my_layui {
+		color: #999;
+		font-weight: 700;
+    background-color: rgb(72, 207, 174);
+		color: #ffffff;
+	}
+	.text-center {
+    text-align: center!important;
+   }
+</style>
+<!-- banner -->
+<div class="banner-1">
+	<div class="container">
+	</div>
+</div>
+<body class="blog-body">
+<div class="layui-main blog-container">
+<div class="blog-nav">
+    <nav>
+			<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+        <blockquote class="layui-elem-quote" style="margin-bottom:0;">分类</blockquote>
+        <ul>
+					<li>
+							<a href="javascript:void(0);" onclick="getListByType('all', 'all', '1');">全部</a>
+							<aside></aside>
+					</li>
+						<foreach name="list1" item="list1">
+							<li>
+	                <a href="javascript:void(0);" onclick="getListByType('label', {$list1['label']}, '1');">{$list1['label_cn']}</a>
+	                <aside>({$list1['size']})</aside>
+	            </li>
+						</foreach>
+        </ul>
+			</div>
+    </nav>
+    <nav>
+			<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+        <blockquote class="layui-elem-quote" style="margin-bottom:0;">归档</blockquote>
+        <ul>
+					<foreach name="list2" item="list2">
+						<li>
+								<a href="javascript:void(0);" onclick="getListByType('createdtime', '{$list2['createdtime']}', '1');" >{$list2['time']}</a><span style="margin-left:10px;">({$list2['size']})</span>
+						</li>
+					</foreach>
+        </ul>
+			</div>
+    </nav>
+    <nav>
+			<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+        <blockquote class="layui-elem-quote" style="margin-bottom:0;">阅读排行</blockquote>
+        <ul>
+						<foreach name="list3" item="list3">
+							<li>
+	                <a title="{$list3['title']}" href="/Home/Article/index/id/{$list3['id']}">{$list3['title']}</a>
+	            </li>
+						</foreach>
+        </ul>
+			</div>
+    </nav>
+</div>
+<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+		<div class="blog-main">
+		    <ul id="list">
+		    </ul>
+				<div class="text-center">
+						<div class="layui-box layui-laypage layui-laypage-default kkpager">
+							
+						</div>
+				</div>
+		</div>
+</div>
+<div class="clearfix"></div>
+</div>
+<include file="Public:footer" />
+<script src="__PUBLIC__/Home/Js/Article/list.js"></script>
+    <script>
+
+        layui.use(['util', 'jquery', 'laypage', 'layer'], function () {
+            var util = layui.util, $ = layui.jquery, laypage = layui.laypage, layer = layui.layer;
+            util.fixbar();
+            $('.blog-header-menu-icon').on('click', function () {
+                var $nav = $('.blog-header-menu-nav');
+                $nav.toggle();
+            });
+						laypage({
+							cont: 'demo7'
+							,pages: 5
+							,skip: true
+						});
+        });
+
+    </script>
+    <script>
+
+			// layui.config({
+			// 		base: '__PUBLIC__/layui/custom/' //自定义模块的目录
+			// });
+			//
+			// layui.use(['highlight', 'jquery', 'flow'], function () {
+			// 		var highlight = layui.highlight
+			// 		, $ = layui.jquery
+			// 		, flow = layui.flow;
+			//
+			// 		var keywork = ''
+			// 		if (keywork !== '')
+			// 				highlight.handler(keywork);
+			//
+			// 		var $item = $('.blog-header .layui-nav > .layui-nav-item');
+			// 		$item.removeClass('layui-this');
+			//
+			// 		$item.each(function (i) {
+			// 				if (i == 0 || i == 2)
+			// 						$(this).addClass('layui-this');
+			// 		});
+			//
+			// 		if(2 > 1){
+			// 				flow.load({
+			// 						elem: '#list' //指定列表容器
+			// 						, isAuto: false
+			// 						, done: function (page, next) { //到达临界点（默认滚动触发），触发下一页
+			// 								var lis = [];
+			// 								var p = location.search!==''?location.search:location.pathname;
+			// 								//以Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+			// 								$.getJSON('/Home/AJaxLoadList?page=' + page+'&p='+p, function (res) {
+			// 										//假设你的列表返回在data集合中
+			// 										layui.each(res.data, function (index, item) {
+			// 												lis.push('<li> <h2> <a title="' + item.Title + '" href="' + location.origin + '/detail-' + item.Id + '">' +
+			// 														item.Title + '</a></h2><span class="blog-main-item-time">' + item.CreateTime + '</span></li>');
+			// 										});
+			// 										//执行下一页渲染，如果不存在数据，则告诉flow已经没有更多
+			// 										next(lis.join(''), res.page === page ? 0 : page);
+			// 								});
+			// 						}
+			// 				});
+			// 		}
+			// });
+    </script>

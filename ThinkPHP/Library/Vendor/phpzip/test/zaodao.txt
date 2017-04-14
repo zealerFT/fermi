@@ -1,0 +1,28 @@
+测试服务器
+电信ip 218.98.39.1
+119.188.112.179
+ssh
+55667
+ready QVG75ucytJ
+root  rcldmgPH2W
+
+mysql xuys=xuys1234
+
+正式服务器
+联通ip 119.188.112.182
+
+
+ssh
+55667
+ready
+tKGC9dtaUlDf
+ 
+root 0oegFNeKMI
+
+#早稻网络
+支付宝测试账户 :  admin@zaozaodao.com
+    密码       :  zd123456
+支付密码       ： zd456789
+支付宝pid      ： 2088511338761816
+无线产品管理   
+安全校验码(Key):   yvj85dgexwec3mxjd3g5x8ad117r2riv

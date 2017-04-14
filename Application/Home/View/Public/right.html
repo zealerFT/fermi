@@ -1,0 +1,96 @@
+<!-- technology-right -->
+<div class="col-md-3 technology-right">
+    <div class="blo-top1">
+      <div class="tech-btm">
+          <!-- <form action="#" method="post" class=" wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+            <div class="input-group">
+            <input type="text" placeholder="输入关键字搜索.." class="form-control">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-success">搜索</button>
+            </span>
+            </div>
+          </form>
+      <br> -->
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=463038767&auto=0&height=90"></iframe>
+      <br><br>
+      <h4>近期发表的文章</h4>
+      <foreach item="list4" name="list4">
+        <div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+          <div class="blog-grid-left shake-hover">
+            <a href="{:U('Article/index', array('id' => $list4['id']))}"><img src="/Upload{$list4['bigview'][0]}" class="img-responsive" alt=""></a>
+          </div>
+          <div class="blog-grid-right">
+            <h5><a href="{:U('Article/index', array('id' => $list4['id']))}">{$list4['littletitle']}</a></h5>
+            <br>
+            <span class="muted "><i class="icon-time"></i> {$list4['times']}</span>&nbsp
+            <span class="muted"><i class="icon-eye-open"></i> {$list4['views']}浏览</span>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </foreach>
+      <h4>点赞文章排行</h4>
+      <foreach item="list5" name="list5">
+        <div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+          <div class="blog-grid-left shake-hover">
+            <a href="{:U('Article/index', array('id' => $list5['id']))}"><img src="/Upload{$list5['bigview'][0]}" class="img-responsive" alt=""></a>
+          </div>
+          <div class="blog-grid-right">
+            <h5><a href="{:U('Article/index', array('id' => $list5['id']))}">{$list5['littletitle']}</a></h5>
+            <br>
+            <span class="muted "><i class="icon-time"></i> {$list5['times']}</span>&nbsp
+            <span class="muted"><i class="icon-heart"></i> {$list5['favourites']}点赞</span>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </foreach>
+        <div class="insta wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+          <h4>博主位置:)</h4>
+          <!--google map-->
+    			<div class="wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".5s">
+    			    <div id="map"></div>
+    			</div>
+      </div>
+      <p>不管前方的路有多苦，只要走的方向正确，不管多么崎岖不平，都比站在原地更接近幸福。</p>
+      <P style="margin-left: 120px;">——宫崎骏《千与千寻》</p>
+      </div>
+    </div>
+</div>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    center: {lat: 31.347466, lng: 121.384487}
+  });
+
+  var marker = new google.maps.Marker({
+    map: map,
+    // Define the place with a location, and a query string.
+    place: {
+      location: {lat: 31.347466, lng: 121.384487},
+      query: 'Google, Sydney, Australia'
+
+    },
+    // Attributions help users find your site again.
+    attribution: {
+      source: 'Google Maps JavaScript API',
+      webUrl: 'https://developers.google.com/maps/'
+    }
+  });
+
+  // Construct a new InfoWindow.
+  var infoWindow = new google.maps.InfoWindow({
+    content: 'Google Sydney'
+  });
+
+  // Opens the InfoWindow when marker is clicked.
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
+  });
+}
+
+</script>
+<script async defer
+        src="http://ditu.google.cn/maps/api/js?key=AIzaSyCGQnoLJfAY9jnzp9QGzKcDMxeSIjNCuig&signed_in=true&libraries=places&callback=initMap">
+</script>
+<div class="clearfix"></div>
+<!-- technology-right -->

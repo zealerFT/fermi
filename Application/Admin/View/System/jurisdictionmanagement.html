@@ -1,0 +1,19 @@
+<include file="Public:header_backend" />
+<include file="Public:menu_leftZiguan" />
+<!--主题内容-->
+<div id="page-wrapper">
+    <div class="content">
+        <div class="main-box" id="main-box" >
+            <div class="main-hd clearfix">
+                <a href="javascript:void(0)" class="btn btn-button" onclick="consleclick()">展开</a>
+                <a href="javascript:void(0)" class="btn btn-button" onclick="collapseAll()">收缩</a>
+                <a href="javascript:void(0)" class="btn btn-button" onclick="refresh()">刷新</a>
+            </div>
+
+            <ul id="tt" class="easyui-tree tree" checkbox="true">
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="./Web/Admin/View/System/Js/jurisdiction.js"></script>
+<include file="Public:footer_backend" />

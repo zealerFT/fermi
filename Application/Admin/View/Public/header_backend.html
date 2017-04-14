@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <head>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8" />
+        <title>管理中心</title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/Css/backend.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/Css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/Css/base.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/Css/easyui.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/webuploader/css/webuploader.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/webuploader/css/style.css" />
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery.tools.min.js"></script>
+        <!-- <script type="text/javascript" src="__PUBLIC__/Admin/Js/bootstrap.min.js"></script> -->
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/Backend.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jedate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/bootstrap-filestyle.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/Js/echarts.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/wysiwyg/bootstrap-wysiwyg.js"></script>
+        <!-- layui-UI -->
+        <link href="__PUBLIC__/layui/css/layui.css" rel="stylesheet">
+        <script src="__PUBLIC__/layui/layui.js"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+        <!-- 百度上传插件 -->
+        <script type="text/javascript" src="__PUBLIC__/webuploader/js/webuploader.min.js"></script>
+    </head>
+    <body class="bg">
+        <div class="wrapper">
+            <!--header 头部-->
+            <div class="navbar navbar-blue navbar-static-top navbar-font" role="navigation">
+              <div class="navbar-header"></div>
+                <div class="phone-box pull-left">
+                    <i class="layui-icon" style="height:20px;font-size: 30px; color: #1E9FFF;">&#xe609;</i>
+                    <span class="sevice">费腾fermi博客后台</span>
+                </div>
+                <div class="nav-box pull-left">
+                    <ul class="nav-ul">
+                        <li>
+                          <i class="layui-icon" style="height:20px;font-size: 20px; color: #1E9FFF;">&#xe64c;</i>
+                          <a href="{:U('Home/Index/index')}" target="_blank">首页</a>
+                        </li>
+                        <li>
+                          <i class="layui-icon" style="height:20px;font-size: 20px; color: #1E9FFF;">&#xe629;</i>
+                          <a href="{:U('Home/Index/index')}" target="_blank">google指数</a>
+                        </li>
+                        <li>
+                          <i class="layui-icon" style="height:20px;font-size: 20px; color: #1E9FFF;">&#xe63c;</i>
+                          <a href="{:U('Home/Index/index')}" target="_blank">计划</a>
+                        </li>
+                        <li>
+                          <i class="layui-icon" style="height:20px;font-size: 20px; color: #1E9FFF;">&#xe642;</i>
+                          <a href="{:U('Home/Index/index')}" target="_blank">Python</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="user-box pull-right">
+                    <div class="user-name pull-left"><!--后台头像-->
+                        <img style="width: 40px;height: 40px;border-radius: 50%;" class="mr5" src="{$_SESSION['user']['avatar']}">
+                        <!-- src="{$_SESSION['userinfo']['userpic']}" -->
+                        欢迎您，{$_SESSION['user']['nickname']}
+                    </div>
+                    <div class="pull-left mr10 relative">
+                    <a href="#">
+                    <i class="layui-icon" style="font-size:15px;color:#1E9FFF;">&#xe60c;</i>
+                    <div class="top_message"></div>
+                    </a>
+                    </div>
+                    <div class="out-btn pull-left">
+                        <a href="/Admin/Login/logout"><i class="iconAll icon-013"></i>退出</a>
+                    </div>
+                </div>
